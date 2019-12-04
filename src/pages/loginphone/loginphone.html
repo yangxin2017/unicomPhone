@@ -1,0 +1,37 @@
+<!--
+  Generated template for the LoginphonePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <uni-header (clkBack)="closeModal()" [showmodal]="true" [title]="'登录'"></uni-header>
+
+</ion-header>
+
+
+<ion-content class="login-container">
+    <img style="margin-top:60px;" width="30%" src="assets/imgs/logo.png" alt=""/><br/>
+    <p class="lpa">
+      <b class="lname">智家宝</b><br/>
+      <span class="ltext">设备的保护伞</span>
+    </p>
+    <form class="lform">
+      <div class="lcontrol">
+        <input [(ngModel)]="username" name="uname" type="text" style="width:210px;float:left;" placeholder="手机号码">
+        <button ion-button class="send" (click)="getVerifynum()" [disabled]="!isEnableSend">获取验证码</button>
+      </div>
+      <div class="lcontrol">
+        <input [(ngModel)]="password" name="upass" type="password" placeholder="验证码">
+      </div>
+  
+      <a *ngIf="!isValidPhone" style="text-align:left;display:block;color:#f00;margin-top:10px;" class="link_regist">请输入正确的手机号码</a><br/>
+      <a *ngIf="!isEnableSend" style="text-align:left;display:block;color:#333;margin-top:10px;" class="link_regist">{{lastsecond}}秒后可重新发送</a><br/>
+      <button (click)="loginPhone()" [disabled]="username=='' || password==''" ion-button class="btn-confirm">登  录</button><br/>
+  
+    </form>
+    
+    <label class="copyright">&copy;2018 HZSPEC</label>
+
+</ion-content>

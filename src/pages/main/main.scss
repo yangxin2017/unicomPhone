@@ -1,0 +1,138 @@
+page-main {
+    .sliders-container{height:150px;padding:10px;}
+    .slide-zoom{height:100%;}
+    .equip-con{
+        border-radius:8px;width:100%;height:100%;
+        background: linear-gradient(90deg, #01AEFB, #0074FF);
+        .lfimg{float:left;height:85px;margin:25px 0 0 15px;}
+        .infor{margin-left:165px;padding-top:10px;text-align:left;
+            p{font-size:18px;color:#fff;margin:0 0 6px 0;position:relative;left:-15px;
+                span{font-size:30px;color:#FDFF00;font-weight:bold;}
+            }
+            .stl-container{line-height:21px;}
+            .stl{color:#fff;font-size:12px;display:inline-block;width:80px;}
+        }
+
+        &.l2{
+            background: linear-gradient(90deg, #FE4E69, #E00123);
+        }
+
+        &.l3{
+            background: linear-gradient(90deg, #7428F2, #4B0BB7);
+        }
+    }
+    .swiper-pagination-fraction, .swiper-pagination-custom, .swiper-container-horizontal > .swiper-pagination-bullets{bottom:2px;}
+
+    .panel-ldsm{
+        border-top:solid 1px #ccc;
+        padding:10px;
+        .inner{
+            padding:15px 20px;
+            .i-left{
+                float:left;width:50%;line-height:23px;
+                .title{
+                    font-size:14px;color:#333;
+                    span{color:#FF677C;}
+                }
+                .info{font-size:12px;color:#999;}
+                .icons{margin:-10px 0 0 20px;}
+                .but-ty{
+                    border-radius:30px;width:88px;height:26px;background:#ccc;
+                    font-size:12px;box-shadow:none;padding:0;margin-top:13px;
+                    .button-inner{font-size:12px;color:#0074FF;}
+                }
+            }
+        }
+    }
+
+    .panel-wgxx{
+        clear:both;
+        border-top:solid 1px #ccc;
+        padding:10px;
+        .title{
+            span{font-size:18px;}
+            .but-add{float:right;height:25px;margin-top:0px;
+                .button-inner{font-size:12px;color:#0074FF;}
+            }
+        }
+        .inner{
+            padding:15px 20px 25px 20px;
+            .i-left{
+                float:left;width:50%;
+                &.rg{
+                    padding-right:15px;
+                    text-align:right;
+
+                    line-height:23px;
+                    .tl{font-size:14px;color:#333;}
+                    .info{font-size:14px;color:#999;}
+
+                    .but-ty{
+                        border-radius:30px;width:88px;height:26px;background:#3FCB98;
+                        font-size:12px;box-shadow:none;padding:0;margin-top:13px;
+                        .button-inner{font-size:12px;color:#fff;}
+                        &.gray{
+                            background:#ccc;
+                            .button-inner{font-size:12px;color:#666;}
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+    .bottom-m{
+        background:#ddd;text-align:center;color:#999;padding:10px 0 20px 0;
+        font-size:12px;clear:both;
+    }
+
+    .img-ldsm{
+        position:relative;
+        .circle{
+            position:absolute;
+            width:15px;height:15px;background:#E00123;
+            motion-path: path("M 34 53 C 38 43 61 43 85 52 C 109 62 125 77 121 87 C 117 96 95 97 71 88 C 47 79 30 63 34 53 Z");
+            animation: move 3s linear infinite;
+        }
+    }
+    @keyframes move { 
+        0%   {transform: rotate(0)}
+        100% {transform: rotate(360deg);}
+    }
+    @keyframes move2 { 
+        0%   {transform: rotate(0) scale(1.0);opacity:0.5;}
+        100% {transform: rotate(0) scale(0.5);opacity:0;}
+    }
+    @keyframes move3 { 
+        0%   {transform: scale(1.0);opacity:1.0}
+        50% {transform: scale(0.8);opacity:0.2;}
+        100% {transform: scale(1.0);opacity:1.0;}
+    }
+
+    .sx-bg{
+        
+        width:124px;height:108px;position:relative;margin:-8px 0 14px 14px;
+        position:absolute;left: -3px;top: 6px;
+        opacity:1;
+        &.move{
+            animation: move 5s linear infinite;
+        }
+    }
+    .img-sx{
+        position:absolute;
+        left:56px;top:34px;
+        &.move{
+            animation: move3 3s linear infinite 0s;
+        }
+    }
+
+    .see-result{font-size:12px;display:inline-block;margin:-7px 0 0 7px;text-decoration:underline;position:relative;top:-5px;
+        .button-inner{font-size:12px;color:#0074FF;}
+        &.tip{
+            margin-left:-3px;
+            text-decoration:none;
+            .button-inner{font-size:12px;color:#FF677C;}
+        }
+    }
+    
+}

@@ -1,0 +1,86 @@
+{
+  "name": "hzspecPhone",
+  "version": "0.0.1",
+  "author": "Ionic Framework",
+  "homepage": "http://ionicframework.com/",
+  "private": true,
+  "scripts": {
+    "start": "ionic-app-scripts serve",
+    "clean": "ionic-app-scripts clean",
+    "build": "ionic-app-scripts build",
+    "lint": "ionic-app-scripts lint"
+  },
+  "dependencies": {
+    "@angular/animations": "5.2.11",
+    "@angular/common": "5.2.11",
+    "@angular/compiler": "5.2.11",
+    "@angular/compiler-cli": "5.2.11",
+    "@angular/core": "5.2.11",
+    "@angular/forms": "5.2.11",
+    "@angular/http": "5.2.11",
+    "@angular/platform-browser": "5.2.11",
+    "@angular/platform-browser-dynamic": "5.2.11",
+    "@ionic-native/core": "~4.12.0",
+    "@ionic-native/device": "^4.18.0",
+    "@ionic-native/network": "^4.17.0",
+    "@ionic-native/splash-screen": "~4.12.0",
+    "@ionic-native/status-bar": "~4.12.0",
+    "@ionic/pro": "2.0.3",
+    "@ionic/storage": "^2.1.3",
+    "@jiguang-ionic/jpush": "^1.0.2",
+    "@lovanya/speedtest": "0.0.7",
+    "browser-process-hrtime": "^1.0.0",
+    "cordova-android": "7.1.2",
+    "cordova-open-native-settings": "^1.5.2",
+    "cordova-plugin-device": "^2.0.2",
+    "cordova-plugin-inappbrowser": "file:../myappbrowser",
+    "cordova-plugin-ionic-keyboard": "^2.1.3",
+    "cordova-plugin-jcore": "^1.2.6",
+    "cordova-plugin-network-information": "^2.0.1",
+    "cordova-plugin-screen-orientation": "^3.0.1",
+    "cordova-plugin-splashscreen": "^5.0.2",
+    "cordova-plugin-statusbar": "^2.4.2",
+    "cordova-plugin-whitelist": "^1.3.3",
+    "cordova-sqlite-storage": "^2.6.0",
+    "echarts": "^4.2.0-rc.1",
+    "es6-promise-plugin": "^4.2.2",
+    "ionic-angular": "3.9.2",
+    "ionicons": "3.0.0",
+    "jpush-phonegap-plugin": "^3.6.0",
+    "jquery": "^3.3.1",
+    "moment": "^2.22.2",
+    "ngx-timeago": "^1.0.0",
+    "rxjs": "5.5.11",
+    "sockjs-client": "^1.3.0",
+    "speedtest-net": "^1.4.3",
+    "stompjs": "^2.3.3",
+    "sw-toolbox": "3.6.0",
+    "zone.js": "0.8.26"
+  },
+  "devDependencies": {
+    "@ionic/app-scripts": "3.2.0",
+    "typescript": "~2.6.2"
+  },
+  "description": "An Ionic project",
+  "cordova": {
+    "plugins": {
+      "cordova-sqlite-storage": {},
+      "cordova-plugin-screen-orientation": {},
+      "cordova-plugin-whitelist": {},
+      "cordova-plugin-statusbar": {},
+      "cordova-plugin-device": {},
+      "cordova-plugin-splashscreen": {},
+      "cordova-plugin-ionic-keyboard": {},
+      "cordova-plugin-inappbrowser": {},
+      "cordova-open-native-settings": {},
+      "cordova-plugin-network-information": {},
+      "jpush-phonegap-plugin": {
+        "APP_KEY": "d8048228671bdf91bb27ebdb",
+        "CHANNEL": "developer-default"
+      }
+    },
+    "platforms": [
+      "android"
+    ]
+  }
+}

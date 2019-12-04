@@ -1,0 +1,86 @@
+<!--
+  Generated template for the MinePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<!-- <ion-header>
+
+  <uni-header *ngIf="!editMod" [title]="'我的'" [showmes]="true" [mestitle]="'修改'" (clkRight)="editInfor()"></uni-header>
+  <uni-header *ngIf="editMod" [title]="'我的'" [showmes]="true" [mestitle]="'保存'" (clkRight)="saveInfo()"></uni-header>
+
+</ion-header> -->
+
+
+<ion-content style="background:#fafafa;">
+<div *ngIf="userinfo">
+  <div class="avatar">
+    <img src="assets/imgs/avatar.png" class="img" alt=""/>
+    <div class="infor">
+      <b>{{userinfo.username}}</b>
+      <a style="font-size:12px;float:right;margin:0 20px 0 0;" *ngIf="!editMod" (click)="editInfor()">[修改]</a>
+      <a style="font-size:12px;float:right;margin:0 20px 0 0;" *ngIf="editMod" (click)="saveInfo()">[保存]</a>
+      <br/>
+      邮箱：{{userinfo.email}}
+    </div>
+  </div>
+
+  <div class="item">
+    <ion-icon class="icons-icons" style="color:#0FACFD" md="md-mail"></ion-icon>账号/邮箱
+    <span *ngIf="!editMod" class="val">{{userinfo.email}}</span>
+    <input *ngIf="editMod" type="text" [(ngModel)]="userinfo.email" />
+  </div>
+  <div class="item">
+    <ion-icon class="icons-icons" style="color:#0FACFD" md="md-unlock"></ion-icon>登录密码
+    <span *ngIf="!editMod" class="val">******************</span>
+    <input *ngIf="editMod" type="text" [(ngModel)]="userinfo.password" />
+  </div>
+  <div class="item">
+    <ion-icon class="icons-icons" style="color:#FFD21C" md="md-person"></ion-icon>姓名
+    <span *ngIf="!editMod" class="val">{{userinfo.username}}</span>
+    <input *ngIf="editMod" type="text" [(ngModel)]="userinfo.username" />
+  </div>
+  <div class="item">
+    <ion-icon class="icons-icons" style="color:#0FACFD" md="md-calendar"></ion-icon>生日
+    <span *ngIf="!editMod" class="val">{{userinfo.birth | date: 'yyyy年MM月d日'}}</span>
+    <!--<input *ngIf="editMod" type="text" [(ngModel)]="userinfo.birth" />-->
+    <ion-datetime class="datetime" displayFormat="YYYY-MM-DD" *ngIf="editMod" [(ngModel)]="userinfo.birth"></ion-datetime>
+  </div>
+  <div class="item">
+    <ion-icon class="icons-icons" style="color:#FFD21C" md="md-phone-portrait"></ion-icon>手机号码
+    <span *ngIf="!editMod" class="val">{{userinfo.phoneNumber}}</span>
+    <input *ngIf="editMod" type="text" [(ngModel)]="userinfo.phoneNumber" />
+  </div>
+  <div class="item">
+    <ion-icon class="icons-icons" style="color:#0FACFD" md="md-list-box"></ion-icon>身份证号码
+    <span *ngIf="!editMod" class="val">******************</span>
+    <input *ngIf="editMod" type="text" [(ngModel)]="userinfo.verifynum" />
+  </div>
+  <div class="item">
+    <ion-icon class="icons-icons" style="color:#76DA3C" md="md-chatbubbles"></ion-icon>微信号
+    <span *ngIf="!editMod" class="val">{{userinfo.wxcode}}</span>
+    <input *ngIf="editMod" type="text" [(ngModel)]="userinfo.wxcode" />
+  </div>
+  <!--<div class="item" style="margin-top:30px;" (click)="showlists()">
+    <ion-icon class="icons-icons" style="color:#000" md="logo-rss"></ion-icon>绑定网关
+    <span class="val icons icon-mine-l9"></span>
+  </div>-->
+  <div class="item" (click)="showlistsNW()">
+    <ion-icon class="icons-icons" style="color:#000" md="logo-rss"></ion-icon>绑定网关
+    <span class="val icons icon-mine-l9"></span>
+  </div>
+  <!--<div class="item" (click)="goWeb('宽带缴费')">
+    <ion-icon class="icons-icons" style="color:#FFD21C" md="logo-usd"></ion-icon>宽带缴费
+    <span class="val icons icon-mine-l9"></span>
+  </div>-->
+
+  <div class="item" (click)="goWeb('关于我们')">
+    <ion-icon class="icons-icons" style="color:#FFD21C" ios="ios-settings" md="md-settings"></ion-icon>关于
+    <span class="val icons icon-mine-l9"></span>
+  </div>
+
+  <div class="item" style="margin-top:30px;color:#f00;" (click)="logout()">
+    <ion-icon class="icons-icons" style="color:#f00" md="md-exit"></ion-icon>退出此账号
+  </div>
+</div>
+</ion-content>

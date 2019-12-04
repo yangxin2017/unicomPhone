@@ -1,0 +1,35 @@
+<!--
+  Generated template for the LoginPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-content class="login-container">
+  <img style="margin-top:70px;" width="30%" src="assets/imgs/logo.png" alt=""/><br/>
+  <p class="lpa">
+    <b class="lname">智家宝</b><br/>
+    <span class="ltext">安全的智慧家庭</span>
+  </p>
+  <form class="lform">
+    <div class="lcontrol">
+      <span class="icons ico-username"></span>
+      <input [(ngModel)]="username" name="uname" type="text" placeholder="用户名">
+    </div>
+    <div class="lcontrol">
+      <span class="icons ico-password"></span>
+      <input [(ngModel)]="password" name="upass" type="password" placeholder="密码">
+    </div>
+
+
+    <a style="display:block;color:#333;margin-top:50px;" class="link_regist" (click)="goLoginForPhone()">手机号码登录</a><br/>
+    <button (click)="checkLogin()" [disabled]="username=='' || password==''" ion-button class="btn-confirm">登  录</button><br/>
+    
+    <!--<button (click)="goLoginForPhone()" ion-button class="btn-confirm phone">手机号码登录</button><br/>
+
+    <a class="link_regist" (click)="goRegist()">立即注册</a>-->
+
+  </form>
+  
+  <label class="copyright">&copy;2018 HZSPEC</label>
+
+</ion-content>

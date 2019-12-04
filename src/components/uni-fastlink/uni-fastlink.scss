@@ -1,0 +1,17 @@
+uni-fastlink {
+    .fast-links{padding:10px 10px;border-top:solid 1px #ccc;
+        h5{margin:0;}
+        .links{overflow: hidden;margin-top:10px;
+            .lk{width:25%;float:left;height:85px;text-align:center;position:relative;font-size:12px;
+                .lk-cir{display:inline-block;width:60px;height:60px;line-height:56px;background:#FEA000;border-radius:50px;text-align:center;margin:0 0 5px 0;}
+            }
+        }
+    }
+    .btn-sign{
+        display:inline-block;padding:2px 5px;
+        border-radius:30px;background:#f00;
+        white-space:nowrap;color:#fff;right:0px;
+        position:absolute;top:0px;font-size:12px;
+        border:solid 1px #fff;
+    }
+}

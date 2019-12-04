@@ -1,0 +1,233 @@
+<!--
+  Generated template for the EquipPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<!-- <ion-header>
+
+  <uni-header [title]="'设备'" [showmes]="true" [mestitle]="'查看流量'" (clkRight)="seeRouterLL()"></uni-header>
+
+</ion-header> -->
+
+
+<ion-content>
+  <div class="head-banner" style="background:url(assets/imgs/equip/bgbanner.png) no-repeat 0 0;background-size:100% 125px;" *ngIf="routerData">
+    <span class="title">{{routerData.user.alias}}<a style="font-size:12px;position:relative;top:-5px;left:5px;" (click)="seeRouterLL()">[查看流量]</a><br/><small>{{routerData.user.apMacAddr}}</small></span>
+
+    <div class="hinfors">
+      <div class="hfmod">
+        <span class="icons ico-equip-l1"></span><br/>
+        <span class="txt">设备数：<b>{{routerData.deviceAmount}}</b></span>
+      </div>
+      <div class="hfmod">
+        <span class="icons ico-equip-l2"></span><br/>
+        <span class="txt">IP：<b style="color:#02A75D">{{routerData.user.ip}}</b></span>
+      </div>
+      <div class="hfmod" (click)="goAlert()">
+        <span class="icons ico-equip-l3"></span><br/>
+        <span class="txt">报警数：<b style="color:#F6576C">{{routerData.deviceAlertAmount}}</b></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="navs">
+    <ion-segment [(ngModel)]="equipTp" (ionChange)="segmentChanged($event)">
+      <ion-segment-button value="all">
+        正常上网
+      </ion-segment-button>
+      <ion-segment-button value="ok">
+        限时设备
+      </ion-segment-button>
+      <ion-segment-button value="no">
+        定时设备
+      </ion-segment-button>
+      <ion-segment-button value="black">
+        黑名单
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+
+  <div [ngSwitch]="equipTp">
+    <div *ngIf="loading" class="loadcon">
+      <ion-icon name="md-sync" class="loading"></ion-icon>&nbsp;&nbsp;正在获取数据...
+    </div>
+    <div class="lists" *ngSwitchCase="'all'">
+      <div class="nodata" *ngIf="equiplist.white.length == 0">
+        <span></span>&nbsp;&nbsp;没有数据&nbsp;&nbsp;<span></span>
+      </div>
+      <div class="litem" *ngFor="let d of equiplist.white">
+        <span *ngIf="d.deviceType==1" class="icons icon-equip-computer licon"></span>
+        <span *ngIf="d.deviceType==2" class="icons icon-equip-phone licon"></span>
+        <span *ngIf="d.deviceType==3 || d.deviceType==0" class="icons icon-equip-other licon"></span>
+        <span *ngIf="d.deviceType==4" class="icons icon-equip-video licon"></span>
+        <div class="title">
+          {{d.alias}}<small>{{d.createTime|stimeago}}</small>
+        </div>
+        <div class="content">
+          <p>Mac地址<span>{{d.deviceMacAddr}}</span></p>
+          <p>IP地址<span>{{d.ip}}</span></p>
+          <p>设备名称<span>{{d.hostName == '' ? '暂无' : d.hostName}}</span></p>
+        </div>
+        <div class="opera">
+          <!-- <span class="icons icon-equip-connect"></span> -->
+          <div class="buttons">
+            <!-- <a (click)="changeAuth(d, '20')" class="but-select" [class.sel]="d.status=='20'">
+              <span class="icons-con"><span class="icons icon-equip-o1"></span></span>
+              <span class="sel-txt" *ngIf="d.status=='20'">白名单</span>
+            </a> -->
+            <a (click)="changeAuth(d, '40')" class="but-select" [class.sel]="d.status=='40'">
+              <span class="icons-con"><span class="icons icon-equip-o2"></span></span>
+              <span class="sel-txt" *ngIf="d.status=='40'">限时使用</span>
+            </a>
+            <a (click)="showDialog(d)" class="but-select" [class.sel]="d.status && d.status.indexOf('-')>=0">
+              <span class="icons-con"><span class="icons icon-equip-o3"></span></span>
+              <span class="sel-txt" *ngIf="d.status && d.status.indexOf('-')>=0">临时授权</span>
+            </a>
+            <a (click)="changeAuth(d, '30')" class="but-select" [class.sel]="d.status=='30'">
+              <span class="icons-con"><span class="icons icon-equip-o4"></span></span>
+              <span class="sel-txt" *ngIf="d.status=='30'">黑名单</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="lists" *ngSwitchCase="'ok'">
+      <div class="nodata" *ngIf="equiplist.xs.length == 0">
+        <span></span>&nbsp;&nbsp;没有数据&nbsp;&nbsp;<span></span>
+      </div>
+      <div class="litem" *ngFor="let d of equiplist.xs">
+        <span *ngIf="d.deviceType==1" class="icons icon-equip-computer licon"></span>
+        <span *ngIf="d.deviceType==2" class="icons icon-equip-phone licon"></span>
+        <span *ngIf="d.deviceType==3 || d.deviceType==0" class="icons icon-equip-other licon"></span>
+        <span *ngIf="d.deviceType==4" class="icons icon-equip-video licon"></span>
+        <div class="title">
+          {{d.alias}}<small>{{d.createTime|stimeago}}</small>
+        </div>
+        <div class="content">
+          <p>Mac地址<span>{{d.deviceMacAddr}}</span></p>
+          <p>IP地址<span>{{d.ip}}</span></p>
+          <p>设备名称<span>{{d.hostName == '' ? '暂无' : d.hostName}}</span></p>
+        </div>
+        <div class="opera">
+          <!-- <span class="icons icon-equip-connect"></span> -->
+          <div class="buttons">
+            <a (click)="changeAuth(d, '20')" class="but-select" [class.sel]="d.status=='20'">
+              <span class="icons-con"><span class="icons icon-equip-o1"></span></span>
+              <span class="sel-txt" *ngIf="d.status=='20'">白名单</span>
+            </a>
+            <a (click)="changeAuth(d, '40')" class="but-select" [class.sel]="d.status=='40'">
+              <span class="icons-con"><span class="icons icon-equip-o2"></span></span>
+              <span class="sel-txt" *ngIf="d.status=='40'">限时使用</span>
+            </a>
+            <a (click)="showDialog(d)" class="but-select" [class.sel]="d.status && d.status.indexOf('-')>=0">
+              <span class="icons-con"><span class="icons icon-equip-o3"></span></span>
+              <span class="sel-txt" *ngIf="d.status && d.status.indexOf('-')>=0">临时授权</span>
+            </a>
+            <a (click)="changeAuth(d, '30')" class="but-select" [class.sel]="d.status=='30'">
+              <span class="icons-con"><span class="icons icon-equip-o4"></span></span>
+              <span class="sel-txt" *ngIf="d.status=='30'">黑名单</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="lists" *ngSwitchCase="'no'">
+      <div class="nodata" *ngIf="equiplist.ds.length == 0">
+        <span></span>&nbsp;&nbsp;没有数据&nbsp;&nbsp;<span></span>
+      </div>
+      <div class="litem" *ngFor="let d of equiplist.ds">
+        <span *ngIf="d.deviceType==1" class="icons icon-equip-computer licon"></span>
+        <span *ngIf="d.deviceType==2" class="icons icon-equip-phone licon"></span>
+        <span *ngIf="d.deviceType==3 || d.deviceType==0" class="icons icon-equip-other licon"></span>
+        <span *ngIf="d.deviceType==4" class="icons icon-equip-video licon"></span>
+        <div class="title">
+          {{d.alias}}<small>{{d.createTime|stimeago}}</small>
+        </div>
+        <div class="content">
+          <p>Mac地址<span>{{d.deviceMacAddr}}</span></p>
+          <p>IP地址<span>{{d.ip}}</span></p>
+          <p>设备名称<span>{{d.hostName == '' ? '暂无' : d.hostName}}</span></p>
+        </div>
+        <div class="opera">
+          <!-- <span class="icons icon-equip-connect"></span> -->
+          <div class="buttons">
+            <a (click)="changeAuth(d, '20')" class="but-select" [class.sel]="d.status=='20'">
+              <span class="icons-con"><span class="icons icon-equip-o1"></span></span>
+              <span class="sel-txt" *ngIf="d.status=='20'">白名单</span>
+            </a>
+            <a (click)="changeAuth(d, '40')" class="but-select" [class.sel]="d.status=='40'">
+              <span class="icons-con"><span class="icons icon-equip-o2"></span></span>
+              <span class="sel-txt" *ngIf="d.status=='40'">限时使用</span>
+            </a>
+            <a (click)="showDialog(d)" class="but-select" [class.sel]="d.status && d.status.indexOf('-')>=0">
+              <span class="icons-con"><span class="icons icon-equip-o3"></span></span>
+              <span class="sel-txt" *ngIf="d.status && d.status.indexOf('-')>=0">临时授权</span>
+            </a>
+            <a (click)="changeAuth(d, '30')" class="but-select" [class.sel]="d.status=='30'">
+              <span class="icons-con"><span class="icons icon-equip-o4"></span></span>
+              <span class="sel-txt" *ngIf="d.status=='30'">黑名单</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="lists" *ngSwitchCase="'black'">
+      <div class="nodata" *ngIf="equiplist.black.length == 0">
+        <span></span>&nbsp;&nbsp;没有数据&nbsp;&nbsp;<span></span>
+      </div>
+      <div class="litem" *ngFor="let d of equiplist.black">
+        <span *ngIf="d.deviceType==1" class="icons icon-equip-computer licon"></span>
+        <span *ngIf="d.deviceType==2" class="icons icon-equip-phone licon"></span>
+        <span *ngIf="d.deviceType==3 || d.deviceType==0" class="icons icon-equip-other licon"></span>
+        <span *ngIf="d.deviceType==4" class="icons icon-equip-video licon"></span>
+        <div class="title">
+          {{d.alias}}<small>{{d.createTime|stimeago}}</small>
+        </div>
+        <div class="content">
+          <p>Mac地址<span>{{d.deviceMacAddr}}</span></p>
+          <p>IP地址<span>{{d.ip}}</span></p>
+          <p>设备名称<span>{{d.hostName == '' ? '暂无' : d.hostName}}</span></p>
+        </div>
+        <div class="opera">
+          <!-- <span class="icons icon-equip-connect"></span> -->
+          <div class="buttons">
+            <a (click)="changeAuth(d, '20')" class="but-select" [class.sel]="d.status=='20'">
+              <span class="icons-con"><span class="icons icon-equip-o1"></span></span>
+              <span class="sel-txt" *ngIf="d.status=='20'">白名单</span>
+            </a>
+            <a (click)="changeAuth(d, '40')" class="but-select" [class.sel]="d.status=='40'">
+              <span class="icons-con"><span class="icons icon-equip-o2"></span></span>
+              <span class="sel-txt" *ngIf="d.status=='40'">限时使用</span>
+            </a>
+            <a (click)="showDialog(d)" class="but-select" [class.sel]="d.status && d.status.indexOf('-')>=0">
+              <span class="icons-con"><span class="icons icon-equip-o3"></span></span>
+              <span class="sel-txt" *ngIf="d.status && d.status.indexOf('-')>=0">临时授权</span>
+            </a>
+            <a (click)="changeAuth(d, '30')" class="but-select" [class.sel]="d.status=='30'">
+              <span class="icons-con"><span class="icons icon-equip-o4"></span></span>
+              <span class="sel-txt" *ngIf="d.status=='30'">黑名单</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="dialog-content" [class.show]="showTimedia">
+    <span class="title">该设备限时时段设置为：<b>{{structure.lower}}</b>时至<b>{{structure.upper}}</b>时</span>
+    <ion-range dualKnobs="true" max="24" pin="true" [(ngModel)]="structure" color="dark">
+      <ion-label range-left>0</ion-label>
+      <ion-label range-right>24</ion-label>
+    </ion-range>
+    <div class="buttons">
+      <button ion-button class="but" (click)="closeDialog()">取消</button>
+      <button ion-button class="but" (click)="confirmDialog()">确认</button>
+    </div>
+  </div>
+
+</ion-content>

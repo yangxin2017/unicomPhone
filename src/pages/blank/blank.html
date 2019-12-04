@@ -1,0 +1,16 @@
+<!--
+  Generated template for the BlankPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <uni-header (clkBack)="closeModal()" [showmodal]="true" [title]="title"></uni-header>
+
+</ion-header>
+
+
+<ion-content style="padding:10px;">
+  <iframe id="iframea" frameborder="0" height="100%" width="100%" *ngIf="realurl != ''" [src]="realurl"></iframe>
+</ion-content>

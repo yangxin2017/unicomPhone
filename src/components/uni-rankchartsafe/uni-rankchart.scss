@@ -1,0 +1,30 @@
+uni-rankchartsafe {
+    .alertchart{padding:10px;
+        .chartcontainer{
+            border-radius:17px;position:relative;border:solid 1px #e2e2e2;min-height:100px;
+            .ico-main-ch2{position:absolute;left:0;top:0;}
+            .title{float:right;width:78%;border-bottom:solid 1px #e2e2e2;line-height:46px;font-weight:bold;font-size:15px;}
+            .contents{clear:both;padding:10px 5px 10px 5px;}
+        }
+    }
+    .bind-button{
+        position:absolute;width:100%;height:100%;left:0;top:0;
+        background:rgba(0,0,0,0.3);text-align:center;line-height:320px;
+        font-size:22px;color:#fff;
+    }
+    .load-txt{
+        position: absolute;
+        left:50%;top:80px;margin-left:-60px;
+        color:#CA2728;
+        .loading{
+            font-size:18px;color:#CA2728;
+            animation: circle 1s linear infinite;
+        }
+    }
+    
+    @keyframes circle
+    {
+        from {transform:rotate(0deg);}
+        to {transform: rotate(360deg);}
+    }
+}

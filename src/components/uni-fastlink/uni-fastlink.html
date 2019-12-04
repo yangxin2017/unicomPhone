@@ -1,0 +1,31 @@
+<!-- Generated template for the UniFastlinkComponent component -->
+<div class="fast-links">
+  <h5>快捷导航</h5>
+  <div class="links">
+    <div class="lk" (click)="goSpeed()">
+      <div class="lk-cir">
+        <span class="icons ico-fl1"></span>
+      </div><br/>
+      宽带测速
+    </div>
+    <div class="lk" (click)="goWeb('智慧生活')">
+      <div class="lk-cir" style="background:#FF677C;">
+        <span class="icons ico-fl2"></span>
+      </div><br/>
+      智慧生活
+    </div>
+    <div class="lk" (click)="goWeb('签到')">
+      <div class="lk-cir" style="background:#7851EA;">
+        <span class="icons ico-fl3"></span>
+      </div><br/>
+      签到
+      <span class="btn-sign" *ngIf="!isSign">{{isSign ? '已签到' : '未签到'}}</span>
+    </div>
+    <div class="lk" (click)="goGreen()">
+      <div class="lk-cir" style="background:#3FCB98;line-height:60px;">
+        <span class="icons ico-fl4"></span>
+      </div><br/>
+      绿色上网
+    </div>
+  </div>
+</div>

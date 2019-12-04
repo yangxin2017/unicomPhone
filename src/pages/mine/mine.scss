@@ -1,0 +1,26 @@
+page-mine {
+    .avatar{background:#fff;height:75px;margin:15px 0 30px 0;
+        .img{float:left;margin:8px 0 0 15px;}
+        .infor{
+            margin-left:90px;font-size:16px;
+            padding:11px 0 0 0;line-height:26px;
+        }
+    }
+    .item{
+        height:40px;line-height:42px;background:#fff;
+        font-size:14px;padding:0 15px;margin-bottom:2px;
+        vertical-align:middle;
+        .icons{margin:0 8px 0 0;width:22px;}
+        .val{float:right;color:#666;font-size:12px;
+            &.icons{margin:12px 0 0 0;}
+        }
+        .datetime,
+        input{border:none;float:right;line-height:35px;width:200px;text-align:right;border-bottom:solid 1px #0074FF;}
+        .datetime-md{padding:13px 0px 9px 0px;
+        }
+        .icons-icons{
+            font-size:23px;vertical-align:middle;
+            min-height:auto;margin-right:8px;position:relative;top:-1px;
+        }
+    }
+}

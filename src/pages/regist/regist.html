@@ -1,0 +1,37 @@
+<!--
+  Generated template for the RegistPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <uni-header (clkBack)="closeModal()" [showmodal]="true" [title]="'注册'"></uni-header>
+
+</ion-header>
+
+
+<ion-content style="text-align:center;padding:10px;">
+
+  <img style="margin-top:20px;" width="30%" src="assets/imgs/logo.png" alt=""/><br/>
+
+  <div class="forms">
+
+    <form class="lform" >
+      <div class="lcontrol">
+        <input [(ngModel)]="phonenumber" name="uname" type="text" style="width:210px;float:left;" placeholder="手机号码">
+        <button [disabled]="!isEnableSend" (click)="getVerifynum()" ion-button class="send">获取验证码</button>
+      </div>
+      <div class="lcontrol">
+        <input [(ngModel)]="phonepassword" name="upass" type="text" placeholder="验证码">
+      </div>
+      
+      <a *ngIf="!isValidPhone" style="text-align:left;display:block;color:#f00;margin-top:10px;" class="link_regist">请输入正确的手机号码</a><br/>
+      <a *ngIf="!isEnableSend" style="text-align:left;display:block;color:#333;margin-top:10px;" class="link_regist">{{lastsecond}}秒后可重新发送</a><br/>
+      <button (click)="registPhone()" [disabled]="phonenumber=='' || phonepassword==''" ion-button class="btn-confirm">注  册</button><br/>
+
+    </form>
+
+  </div>
+
+</ion-content>

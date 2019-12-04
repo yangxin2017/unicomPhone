@@ -1,0 +1,22 @@
+<!--
+  Generated template for the TiplinkrouterPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <uni-header  (clkBack)="closeModal()" [showmodal]="true" [title]="'连接网关路由'"></uni-header>
+
+</ion-header>
+
+
+<ion-content style="background:#ffffff;padding:20px;text-align:center;">
+  <div style="padding:20px;">
+    <h5>进行网关测速，请确保手机已经连接到网关WIFI</h5>
+    <img src="assets/imgs/net.png" class="tip-img" alt="" />
+
+    <button ion-button clear (click)="connectWIFI()">连接网关WIFI</button>
+    <button ion-button class="link-button" (click)="linkedClk()">我已连接</button>
+  </div>
+</ion-content>

@@ -1,0 +1,62 @@
+<!--
+  Generated template for the BindrouterPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <uni-header (clkBack)="closeModal()" [showmodal]="true" [title]="'绑定网关'"></uni-header>
+
+</ion-header>
+
+
+<ion-content>
+  <div class="step1 center-con" *ngIf="step==1">
+    <img src="assets/bind/step1.png" alt="" /><br/>
+    <button ion-button class="connet-button" (click)="connectWIFI()">连接联通网关WIFI</button><br/>
+    <span *ngIf="searchrouter" class="tip-connect"><ion-icon name="md-sync" class="loading"></ion-icon>&nbsp;正在搜索网关...</span>
+  </div>
+
+  <div class="step2 center-con" *ngIf="step==2">
+    <img src="assets/bind/step2.png" alt="" /><br/>
+    <div class="title-name">
+      <br/>
+      <span class="tip">发现一台中国联通智能网关</span><br/>
+      <span class="title">LTZHWO-internet</span>
+    </div>
+    <div class="buttons">
+      <button ion-button class="button">扫码绑定</button><br/>
+      <span class="txt">将网关底部Mac条形码放入视频框内，即可扫码</span>
+    </div>
+    <div class="buttons qs">
+      <button ion-button class="button" (click)="manInput()">手工输入</button><br/>
+      <span class="txt">将网关底部Mac地址手动输入进来</span>
+    </div>
+  </div>
+
+  <div class="step3 center-con" *ngIf="step==3">
+      <img src="assets/bind/step3.png" alt="" /><br/>
+      <div class="bindform">
+        <span class="title">请输入设备<br/>用户名和密码完成绑定</span>
+        <ion-list>
+          <ion-item>
+            <ion-label fixed>用户名</ion-label>
+            <ion-input type="text"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label fixed>密码</ion-label>
+            <ion-input type="password"></ion-input>
+          </ion-item>
+        </ion-list>
+        <button ion-button class="button" (click)="confirmForm()">确认</button>
+      </div>
+  </div>
+
+  <div class="step4 center-con" *ngIf="step==4">
+      <br/><br/>
+      <img src="assets/bind/step4.png" alt="" /><br/>
+      <button ion-button class="button" (click)="fininsh()">确认</button>
+  </div>
+
+</ion-content>

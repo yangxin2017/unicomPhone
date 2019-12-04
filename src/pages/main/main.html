@@ -1,0 +1,178 @@
+<!--
+  Generated template for the MainPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<!-- <ion-header>
+
+  <uni-header></uni-header>
+
+</ion-header> -->
+
+
+<ion-content>
+  <!--<tip-bind *ngIf="!registed"></tip-bind>-->
+  <ion-slides [autoplay]="5000" *ngIf="registed" class="sliders-container" pager>
+
+    <ion-slide>
+      <div class="equip-con l2">
+        <img class="lfimg" src="assets/imgs/main/s1.png" alt="" />
+        <div class="infor">
+          <p class="tl">设备总量：<span>{{staticData.equip.total}}</span></p>
+          <div class="stl-container">
+            <span class="stl">移动终端 {{staticData.equip.sj}}</span>
+            <span class="stl">电脑 {{staticData.equip.dn}}</span>
+            <span class="stl">摄像头 {{staticData.equip.sxt}}</span>
+            <span class="stl">其他 {{staticData.equip.qt}}</span>
+          </div>
+        </div>
+      </div>
+    </ion-slide>
+
+    <ion-slide>
+      <div class="equip-con l3">
+        <img class="lfimg" style="position:relative;left:20px;" src="assets/imgs/main/s3.png" alt="" />
+        <div class="infor">
+          <p class="tl">流量统计：<span>{{staticData.llsj.total[0]}} <small style="color:#FDFF00;font-size:14px;">{{staticData.llsj.total[1]}}</small></span></p>
+          <div class="stl-container">
+            <span class="stl" style="width:100px">本周 {{staticData.llsj.cur[0]}} {{staticData.llsj.cur[1]}}</span><br />
+            <span class="stl" style="width:100px">上周 {{staticData.llsj.pre[0]}} {{staticData.llsj.pre[1]}}</span>
+          </div>
+        </div>
+      </div>
+    </ion-slide>
+
+    <ion-slide>
+      <div class="equip-con">
+        <img class="lfimg" style="position:relative;left:20px;" src="assets/imgs/main/s2.png" alt="" />
+        <div class="infor">
+          <p class="tl">异常请求：<span>{{staticData.alert.sum}}</span></p>
+          <div class="stl-container">
+            <span class="stl" style="width:100px">本周 {{staticData.alert.cur}}</span><br />
+            <span class="stl" style="width:100px">上周 {{staticData.alert.pre}}</span>
+          </div>
+        </div>
+      </div>
+    </ion-slide>
+
+  </ion-slides>
+
+  <ion-slides *ngIf="!registed" class="sliders-container" pager>
+
+    <ion-slide>
+      <div class="equip-con l2">
+        <img class="lfimg" src="assets/imgs/main/s1.png" alt="" />
+        <div class="infor" style="padding-top:21px;">
+          <p class="tl">设备总量查看</p>
+          <div class="stl-container">
+            <span class="stl">
+              未绑定设备，绑定之后查看
+            </span>
+          </div>
+        </div>
+      </div>
+    </ion-slide>
+
+    <ion-slide>
+      <div class="equip-con">
+        <img class="lfimg" style="position:relative;left:20px;" src="assets/imgs/main/s2.png" alt="" />
+        <div class="infor" style="padding-top:21px;">
+          <p class="tl">报警统计查看</p>
+          <div class="stl-container">
+            <span class="stl">
+              未绑定设备，绑定之后查看
+            </span>
+          </div>
+        </div>
+      </div>
+    </ion-slide>
+
+    <ion-slide>
+      <div class="equip-con l3">
+        <img class="lfimg" style="position:relative;left:20px;" src="assets/imgs/main/s3.png" alt="" />
+        <div class="infor" style="padding-top:21px;">
+          <p class="tl">流量统计查看</p>
+          <div class="stl-container">
+            <span class="stl">
+              未绑定设备，绑定之后查看
+            </span>
+          </div>
+        </div>
+      </div>
+    </ion-slide>
+
+  </ion-slides>
+
+  <uni-fastlink [registed]="registed" [zhsh]="zhsh" [qd]="qd" [isSign]="isSign"></uni-fastlink>
+
+  <div class="panel-ldsm">
+    <div class="inner">
+      <div class="i-left">
+        <span class="title"><span>安全扫描</span>&nbsp;设备防护</span><br />
+        <span class="info">快人一步保护设备安全</span><br />
+        <button (click)="goScan()" [disabled]="scaning" ion-button class="but-ty">{{scaning ? '正在扫描...' : '立即体验'}}</button><br />
+        <button *ngIf="isOver" (click)="showResult()" ion-button clear class="see-result">查看结果</button>
+        <button *ngIf="!registed" ion-button clear class="see-result tip">请先绑定网关</button>
+      </div>
+      <div class="i-left" style="position:relative;height:120px;">
+        <!--<span class="icons img-ldsm">
+              <svg xmlns="http://www.w3.org/2000/svg" width="300px" height="100px">
+                <defs>
+                  <linearGradient y2="1" x2="1" y1="0" x1="0" id="svg_1">
+                    <stop stop-color="#fff" offset="0"/>
+                    <stop stop-color="#f00" offset="1"/>
+                  </linearGradient>
+                  <linearGradient y2="1" x2="1" y1="0" x1="0" id="svg_2">
+                    <stop stop-color="#fff" offset="0"/>
+                    <stop stop-color="#0ff" offset="1"/>
+                  </linearGradient>
+                  <linearGradient y2="1" x2="1" y1="0" x1="0" id="svg_3">
+                    <stop stop-color="#fff" offset="0"/>
+                    <stop stop-color="#f60" offset="1"/>
+                  </linearGradient>
+                </defs>
+                <circle cx="0" cy="0" r="2" fill="url(#svg_1)" stroke-width="1">
+                    <animateMotion begin="2s" path="M 58 62 C 61 57 70 56 80 60 C 89 63 95 70 92 75 C 89 80 80 81 71 77 C 62 74 56 67 58 62 Z" dur="2.3s" repeatCount="indefinite" />
+                </circle>
+                <circle cx="0" cy="0" r="2.5" fill="url(#svg_2)" stroke-width="1">
+                    <animateMotion begin="1s" path="M 54 59 C 57 53 70 52 82 57 C 95 63 101 72 98 78 C 94 84 81 85 69 80 C 57 75 50 65 54 59 Z" dur="2.8s" repeatCount="indefinite" />
+                </circle>
+                <circle cx="0" cy="0" r="3" fill="url(#svg_3)" stroke-width="1">
+                    <animateMotion path="M 41 54 C 47 46 67 45 85 53 C 104 62 113 75 107 82 C 101 90 82 90 64 83 C 46 75 36 62 41 54 Z" dur="2s" repeatCount="indefinite" />
+                </circle>
+              </svg>
+          </span>-->
+        <div class="sx-bg" style="background:url(assets/imgs/sx_bg.png) no-repeat 0 0;" [class.move]="scaning">
+        </div>
+        <img class="img-sx" [class.move]="scaning" src="assets/imgs/sx.png" alt="" />
+      </div>
+    </div>
+  </div>
+
+  <div class="panel-wgxx">
+    <div class="title">
+      <h5 style="display:inline-block;margin-top:0;">网关状态</h5>
+      <button ion-button class="but-add" (click)="showlist()" clear>网关列表</button>
+    </div>
+    <div class="inner">
+      <div class="i-left" style="position: relative;top: -11px;">
+        <span class="icons img-lyq"></span>
+      </div>
+      <div class="i-left rg">
+        <span class="tl">{{routerInfo.name}}</span><br />
+        <span class="info">{{routerInfo.apmac}}</span><br />
+        <button ion-button class="but-ty" [class.gray]="!routerInfo.online">{{routerInfo.online ? '在线' : '离线'}}</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom-m">
+    这里是底线
+  </div>
+  <!--
+    <uni-alertchart [registed]="registed" #realchart></uni-alertchart>
+    
+    <uni-rankchart [registed]="registed" [datas]="rankData"></uni-rankchart>-->
+
+</ion-content>

@@ -1,0 +1,23 @@
+<!--
+  Generated template for the RoutersPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <uni-header (clkBack)="closeModal()" [showmes]="true" [mestitle]="'绑定新网关'" (clkRight)="addRouter()" [showmodal]="true" [title]="'网关列表'"></uni-header>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-list radio-group (ionChange)="selected($event)">
+  
+    <ion-item *ngFor="let item of routes">
+      <ion-label>{{item.apmac}}</ion-label>
+      <ion-radio checked="{{item.checked}}" value="{{item.apmac}}"></ion-radio>
+    </ion-item>
+
+  </ion-list>
+</ion-content>

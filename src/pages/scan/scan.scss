@@ -1,0 +1,173 @@
+page-scan {
+    .toolbar-background{
+        background:transparent;
+    }
+    .toolbar-background-md{
+        border:none;
+    }
+    .toolbar-title-md{
+        color:#fff;
+    }
+    .content-md{
+        background:linear-gradient(90deg, #116ADD, #1199FF);
+    }
+    .button-inner{
+        *{color:#fff;}
+    }
+    text-align:center;
+    .circles{
+        height:300px;width:100%;position:relative;
+    }
+    .circle{
+        position:absolute;left:50%;top:50%;margin:-125px 0 0 -125px;
+        width:250px;height:250px;border-radius:250px;
+        background:rgba(255,255,255,0.05);border:solid 1px rgba(255,255,255,0.1);
+        
+    }
+    .circle-i{
+        position:absolute;left:50%;top:50%;margin:-45px 0 0 -45px;
+        width:90px;height:90px;border-radius:250px;
+        background:#1179E8;
+    }
+
+    .img-cir{
+        width:50px;height:50px;position:absolute;left:50%;top:50%;
+        margin:-25px 0 0 -25px;
+        animation:mymove 2s infinite;
+    }
+    .ciring{
+        width:50px;height:50px;position:absolute;left:50%;top:50%;
+        margin:-25px 0 0 -25px;border:solid 2px #fff;border-radius:50px;
+        line-height:50px;
+        ion-icon{
+            font-size:44px;color:#fff;
+        }
+    }
+
+    .start-button{
+        margin-top:90px;width:80%;height:50px;line-height:50px;
+        cursor:pointer;border:solid 1px #fff;background:transparent;
+        border-radius:80px;
+        .button-inner{color:#fff;}
+    }
+
+    .infor{
+        margin-top:90px;text-align:center;line-height:25px;
+        .title{font-size:18px;color:#fff;}
+        .time{font-size:13px;color:#fff;}
+    }
+
+    .img1{
+        position:absolute;left:0;top:0;
+        animation:i1 3s infinite linear;
+        width:20px;
+    }
+    .img2{
+        position:absolute;right:0px;top:0;
+        animation:i2 2s infinite linear;
+        width:20px;
+    }
+    .img3{
+        position:absolute;left:0;top:300px;
+        animation:i3 3s infinite linear;
+        width:20px;
+    }
+    .img4{
+        position:absolute;right:0;top:300px;
+        animation:i4 2s infinite linear;
+        width:20px;
+    }
+
+    @keyframes i1
+    {
+        from {left:0;top:0;opacity:1;}
+        to  {left:50%;top:50%;opacity:0;}
+    }
+    @keyframes i2
+    {
+        from {right:0px;top:0;opacity:1;}
+        to  {right:50%;top:50%;opacity:0;}
+    }
+    @keyframes i3
+    {
+        from {left:0;top:300px;opacity:1;}
+        to  {left:50%;top:50%;opacity:0;}
+    }
+    @keyframes i4
+    {
+        from {right:0;top:300px;opacity:1;}
+        to  {right:50%;top:50%;opacity:0;}
+    }
+
+    @keyframes mymove
+    {
+        from {transform:rotate(0deg);}
+        to  {transform:rotate(360deg);}
+    }
+
+    @keyframes mycircle
+    {
+        from {width:250px;height:250px;margin:-125px 0 0 -125px;opacity:1;}
+        to  {width:100px;height:100px;margin:-50px 0 0 -50px;opacity:1;}
+    }
+
+    .results{
+        text-align:left;
+        position:absolute;bottom:0px;height:0;z-index:9;
+        width:100%;left:0;background:#fff;transition:height 1s;
+        .header{
+            height:160px;background:linear-gradient(90deg, #116ADD, #1199FF);
+            padding:10px 15px;
+            .icons{float:left;}
+            .infor{
+                margin-left:126px;margin-top:24px;text-align:left;
+                span{font-size:16px;color:#fff;}
+                b{font-size:18px;color:#fff;}
+            }
+        }
+        .tips{
+            height:35px;padding:0 0 0 15px;background:#eee;
+            color:#666;font-size:14px;line-height:35px;
+        }
+        .lists{
+            padding:0 15px;
+            height: calc(100% - 195px);
+            overflow: auto;
+            .li{
+                min-height:78px;
+                //line-height:78px;
+                border-bottom:solid 1px #ccc;
+                padding-top: 15px;overflow: hidden;
+                .la{
+                    width:50px;float:left;
+                }
+                .name{font-size:14px;color:#333;font-weight:bold;}
+                .txts{
+                    margin-left:60px;
+                    line-height:20px;
+                    font-size:12px;
+                    p{
+                        margin:7px 20px 0 0;
+                    }
+                }
+                .icons-s6{float:right;margin:5px 0px 0 0;}
+
+                .details{
+                    margin-left:60px;clear:both;line-height:30px;
+                    border-top:solid 1px #eee;background:#fbfbfb;
+                    padding:0 5px;
+                    span{font-size:12px;}
+                    .deal-btn{
+                        float:right;
+                        width:50px;height:23px;line-height:23px;background:#fff;cursor:pointer;color:#fff;font-size:12px;
+                        border:solid 1px #ccc;box-shadow:none;
+                        .button-inner{color:#333;}
+                    }
+                }
+            }
+        }
+        &.fullheight{
+            height:100%;
+        }
+    }
+}

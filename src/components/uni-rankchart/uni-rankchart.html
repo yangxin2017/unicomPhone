@@ -1,0 +1,16 @@
+<!-- Generated template for the UniRankchartComponent component -->
+<div class="alertchart">
+    <div class="chartcontainer">
+      <span class="icons ico-main-ch2"></span>
+      <div class="title">异常IP</div>
+      <div class="contents">
+        <div class="chdom">
+          <div *ngIf="registed" id="barrank" style="width:100%;height:300px;margin:0 auto"></div>
+          <div (click)="goBind()" *ngIf="!registed" style="position:relative;width:100%;height:300px;margin:15px 0 0 0">
+            <img src="assets/imgs/main/sc2.png" alt="" />
+            <div class="bind-button">绑定设备查看</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,126 @@
+<!--
+  Generated template for the SafePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header *ngIf="showHeader">
+
+  <uni-header (clkBack)="closeModal()" [showmodal]="showback" [title]="'安全'"></uni-header>
+
+</ion-header>
+
+
+<ion-content>
+
+  <div class="navs">
+    <ion-segment [(ngModel)]="safeType">
+      <ion-segment-button value="alert">
+        报警管理
+      </ion-segment-button>
+      <ion-segment-button value="green">
+        绿色上网
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+
+  <div class="contents" [ngSwitch]="safeType">
+    <ul class="alertlists" *ngSwitchCase="'alert'">
+
+      <uni-rankchartsafe #safeChart style="margin:-20px 14px 0 14px;" [datas]="mapDatas" [registed]="true"></uni-rankchartsafe>
+
+      <!--<h4 class="titles">最近一周内报警统计<ion-icon style="display:none;" name="ios-funnel-outline"></ion-icon></h4>
+      <h4 (click)="showAll()" class="titles" *ngIf="showSingle">查看所有<ion-icon style="display:none;" name="ios-funnel-outline"></ion-icon></h4>-->
+      <button (click)="showAll()" ion-button class="btn" *ngIf="showSingle">点击查看所有</button>
+
+      <div class="alert-counts">
+        <div class="counts-title" [class.nosel]="nol1">
+          <span class="icon-con l3" (click)="nol1=!nol1">
+            <span class="icons icon-safe-alert"></span>
+          </span>
+          普通
+          <ion-badge class="rg-number" item-end>{{l1count}}</ion-badge>
+
+          <div class="lists">
+            <a *ngFor="let l of l1s" [class.sel]="l.selected" (click)="showCurrent(l)">
+              {{l.name}}
+              <small>{{l.time}}</small>
+            </a>
+          </div>
+        </div>
+
+        <div class="counts-title" [class.nosel]="nol2">
+          <span class="icon-con l2" (click)="nol2=!nol2">
+            <span class="icons icon-safe-alert"></span>
+          </span>
+          中级
+          <ion-badge class="rg-number" item-end>{{l2count}}</ion-badge>
+
+          <div class="lists ll2">
+            <a *ngFor="let l of l2s" [class.sel]="l.selected" (click)="showCurrent(l)">
+              {{l.name}}
+              <small>{{l.time}}</small>
+            </a>
+          </div>
+        </div>
+
+        <div class="counts-title" [class.nosel]="nol3">
+          <span class="icon-con" (click)="nol3=!nol3">
+            <span class="icons icon-safe-alert"></span>
+          </span>
+          高级
+          <ion-badge class="rg-number" item-end>{{l3count}}</ion-badge>
+
+          <div class="lists ll3">
+            <a *ngFor="let l of l3s" [class.sel]="l.selected" (click)="showCurrent(l)">
+              {{l.name}}
+              <small>{{l.time}}</small>
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+      <!--
+      <li *ngFor="let md of alertLists" class="al">
+        <div class="avatar">
+          <span class="icon-con" [class.l2]="md.priority==2" [class.l3]="md.priority==3">
+            <span class="icons icon-safe-alert"></span>
+          </span>
+        </div>
+        <div class="infor">
+          <h5>{{md.sigName}}<small><span class="icons icon-safe-date"></span>&nbsp;{{md.timestamp|stimeago}}</small></h5>
+          <p>
+            <b>Mac地址：</b>{{md.deviceMacAddr}}<br/>
+            <b>源IP：</b>{{md.ipSrc}}&nbsp;&nbsp;&nbsp;&nbsp;<b>目的IP：</b>{{md.ipDst}}
+          </p>
+        </div>
+      </li>
+
+      <button (click)="getMore()" *ngIf="totalpage>pagenum" class="morebut" ion-button full color="light">点击加载更多</button>
+      <button *ngIf="totalpage<=pagenum" class="morebut" ion-button full color="light">没有更多了</button>
+      -->
+
+    </ul>
+
+    <div class="greenlists" *ngSwitchCase="'green'">
+      <ion-item>
+        <ion-label><b>网址阻止</b><br><small>手动设置特定网址存在病毒/木马风险</small></ion-label>
+        <ion-toggle checked="false"></ion-toggle>
+      </ion-item>
+      <ion-item>
+        <ion-label><b>上网防劫持</b><br><small>防止路由器的域名解析劫持到钓鱼网站、木马网站</small></ion-label>
+        <ion-toggle checked="true"></ion-toggle>
+      </ion-item>
+      <ion-item>
+        <ion-label><b>恶意网址防火墙</b><br><small>自动检测各终端的网站是否存在病毒/木马风险</small></ion-label>
+        <ion-toggle checked="true"></ion-toggle>
+      </ion-item>
+      <ion-item>
+        <ion-label><b>信息泄露防火墙</b><br><small>自动拦截恶意进程联网，防止隐私、财产信息外泄</small></ion-label>
+        <ion-toggle checked="true"></ion-toggle>
+      </ion-item>
+    </div>
+  </div>
+
+</ion-content>

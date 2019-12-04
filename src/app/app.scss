@@ -1,0 +1,96 @@
+// http://ionicframework.com/docs/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+
+*{font-family:"微软雅黑","黑体", "幼圆", "Arial";color:#333;}
+.header-md::after{display:none;}
+
+.icons{background:url(../assets/imgs/icons.png) no-repeat 0 0;display:inline-block;}
+.ico-username{width:21px;height:23px;background-position:0 0;}
+.ico-password{width:18px;height:23px;background-position:-36px 0;}
+.ico-fl1{width:33px;height:33px;background-position:0px -34px;vertical-align:middle;}
+.ico-fl2{width:30px;height:32px;background-position:-38px -36px;vertical-align:middle;}
+.ico-fl3{width:28px;height:28px;background-position:-73px -37px;vertical-align:middle;}
+.ico-fl4{width:33px;height:25px;background-position:-148px -40px;vertical-align:middle;}
+.ico-main-ch1{width:64px;height:62px;background-position:-2px -80px;vertical-align:middle;}
+.ico-main-ch2{width:64px;height:62px;background-position:-2px -152px;vertical-align:middle;}
+
+.ico-equip-l1{width:25px;height:31px;background-position:-2px -227px;vertical-align:middle;}
+.ico-equip-l2{width:30px;height:30px;background-position:-41px -229px;vertical-align:middle;}
+.ico-equip-l3{width:28px;height:25px;background-position:-87px -230px;vertical-align:middle;}
+.icon-equip-phone{width:51px;height:58px;background-position:-3px -271px;vertical-align:middle;}
+.icon-equip-computer{width:51px;height:58px;background-position:-3px -335px;vertical-align:middle;}
+.icon-equip-video{width:51px;height:58px;background-position:-81px -269px;vertical-align:middle;}
+.icon-equip-other{width:51px;height:58px;background-position:-81px -333px;vertical-align:middle;}
+
+.icon-equip-connect{width:64px;height:18px;background-position:-6px -432px;vertical-align:middle;}
+.icon-equip-connect.no{width:64px;height:18px;background-position:-6px -451px;vertical-align:middle;}
+.icon-equip-o1{width:16px;height:15px;background-position:-3px -406px;vertical-align:middle;}
+.icon-equip-o2{width:13px;height:15px;background-position:-27px -405px;vertical-align:middle;}
+.icon-equip-o3{width:7px;height:15px;background-position:-63px -406px;vertical-align:middle;}
+.icon-equip-o4{width:15px;height:15px;background-position:-94px -405px;vertical-align:middle;}
+
+.icon-safe-alert{width:25px;height:22px;background-position:-70px -0px;vertical-align:middle;}
+.icon-safe-date{width:14px;height:14px;background-position:-109px -9px;vertical-align:middle;}
+.icon-safe-search{width:14px;height:14px;background-position:-139px -8px;vertical-align:middle;}
+
+.icon-mine-l1{width:22px;height:14px;background-position:-469px -8px;vertical-align:middle;}
+.icon-mine-l2{width:17px;height:17px;background-position:-472px -48px;vertical-align:middle;}
+.icon-mine-l3{width:17px;height:17px;background-position:-472px -91px;vertical-align:middle;}
+.icon-mine-l4{width:12px;height:22px;background-position:-474px -129px;vertical-align:middle;}
+.icon-mine-l5{width:19px;height:16px;background-position:-470px -176px;vertical-align:middle;}
+.icon-mine-l6{width:20px;height:16px;background-position:-470px -217px;vertical-align:middle;}
+.icon-mine-l7{width:17px;height:15px;background-position:-471px -253px;vertical-align:middle;}
+.icon-mine-l8{width:10px;height:18px;background-position:-474px -295px;vertical-align:middle;}
+.icon-mine-l9{width:9px;height:17px;background-position:-476px -329px;vertical-align:middle;}
+.icon-mine-l10{width:22px;height:18px;background-position:-470px -363px;vertical-align:middle;}
+
+.icon-speed-down{width:17px;height:12px;background-position:-289px -10px;vertical-align:middle;}
+.icon-speed-up{width:17px;height:12px;background-position:-321px -8px;vertical-align:middle;}
+
+.back-button-text{display:none;}
+
+.img-ldsm{width:149px;height:111px;background-position:-153px -294px;}
+.img-lyq{width:140px;height:104px;background-position:-306px -294px;}
+
+.icons-s1{width:108px;height:108px;background-position:-1px -486px;}
+.icons-s2{width:50px;height:50px;background-position:-153px -515px;vertical-align:middle;}
+.icons-s3{width:50px;height:50px;background-position:-225px -515px;vertical-align:middle;}
+.icons-s4{width:50px;height:50px;background-position:-302px -515px;vertical-align:middle;}
+.icons-s5{width:50px;height:50px;background-position:-381px -515px;vertical-align:middle;}
+.icons-s6{width:30px;height:30px;background-position:-454px -525px;vertical-align:middle;}
+
+.nodata{
+    text-align:center;line-height:40px;height:40px;font-size:14px;color:#999;
+    span{display:inline-block;width:50px;height:1px;background:#999;vertical-align:middle;}
+}
+
+// 前两个css规则主要用于完善framework7(模板项目使用UI库),不一定适用其他项目
+html, body {
+    height: 100%;
+    overflow: hidden;
+    // box-sizing取决于安全区的padding是加在哪个元素上
+    box-sizing: border-box;
+}
+html.with-statusbar-overlay .framework7-root {
+    padding-top: 0;
+}
+
+// 主要起效是这里,当然也不一定是加在body上
+body {
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+}

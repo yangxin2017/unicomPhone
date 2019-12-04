@@ -1,0 +1,48 @@
+page-regist {
+    .btn-confirm{margin-bottom:8px;width:80%;height:50px;line-height:50px;background:linear-gradient(90deg, #D83A3A, #FFB8B8);margin-top:27px;cursor:pointer;color:#fff;font-size:18px;
+        .button-inner{color:#fff;}
+    }
+    .forms{
+        input{width:100%;border:none;line-height:30px;}
+    }
+
+    .errors{
+        text-align:left;padding-left:10px;
+        .text-danger{font-size:12px;color:#f00;}
+    }
+
+    .reg-tabs{
+        padding:0 15px;
+        margin-top:30px;
+        .segment-button{
+            border-bottom:solid 1px #0074FF;
+            padding:0;height:3.2rem;line-height:3rem;
+            &.segment-activated{
+                border:solid 1px #0074FF;
+                border-bottom:none;
+                border-radius:6px 6px 0 0;
+            }
+        }
+    }
+
+    .lform{width:300px;margin-left:5%;margin:70px auto;
+        .lcontrol{
+            line-height:50px;
+            margin:5px 0;
+            .icons{vertical-align:middle;margin-right:5px;}
+            input{width:300px;border:none;border-bottom:solid 1px #ccc;height:35px;line-height:35px;font-size:15px;}
+        }
+        .btn-confirm{margin-bottom:8px;width:80%;height:50px;line-height:50px;background:linear-gradient(90deg, #D83A3A, #FFB8B8);margin-top:60px;cursor:pointer;color:#fff;font-size:18px;
+            .button-inner{color:#fff;}
+            &.phone{
+                background:linear-gradient(90deg, #ccc, #999);
+                margin-top:5px;
+            }
+        }
+        .link_regist{font-size:14px;color:#088CFF;text-decoration:underline;}
+        .send{
+            background:#eee;float:right;box-shadow:none;
+            color:#027CFF;font-size:12px;width:80px;height:35px;
+        }
+    }
+}

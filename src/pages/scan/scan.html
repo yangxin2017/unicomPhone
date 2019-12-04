@@ -1,0 +1,98 @@
+<!--
+  Generated template for the ScanPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <uni-header (clkBack)="closeModal()" [showmodal]="true" [title]="'漏洞扫描'"></uni-header>
+
+</ion-header>
+
+
+<ion-content padding>
+  <div>
+    <div class="circles">
+      <div class="circle"></div>
+      <div class="circle" style="width:220px;height:220px;margin:-110px 0 0 -110px;animation:mycircle 4s infinite linear;"></div>
+      <div class="circle" style="width:180px;height:180px;margin:-90px 0 0 -90px;animation:mycircle 4s infinite linear 2s;"></div>
+      <div class="circle" style="width:140px;height:140px;margin:-70px 0 0 -70px;animation:mycircle 4s infinite linear 4s;"></div>
+
+      <div class="circle-i"></div>
+
+      <img *ngIf="ing" src="assets/imgs/cir.png" class="img-cir" />
+      <div *ngIf="!ing" class="ciring">
+        <ion-icon name="md-arrow-dropright"></ion-icon>
+      </div>
+
+      <img *ngIf="ing" class="img1" src="assets/imgs/1.png" />
+      <img *ngIf="ing" class="img2" src="assets/imgs/2.png" />
+      <img *ngIf="ing" class="img3" src="assets/imgs/3.png" />
+      <img *ngIf="ing" class="img4" src="assets/imgs/1.png" />
+
+    </div>
+    
+    <div class="infor" *ngIf="ing">
+      <span class="title">正在扫描网关...</span><br/>
+      <span class="time">扫描已经行&nbsp;&nbsp;{{second}}&nbsp;&nbsp;秒</span>
+    </div>
+    <button *ngIf="!ing" ion-button (click)="startScan()" class="start-button">开始扫描</button>
+  </div>
+
+  <div [class.fullheight]="isOver" class="results">
+    <div class="header">
+      <span class="icons icons-s1"></span>
+      <div class="infor">
+        <span>扫描结束</span><br/>
+        <b>设备安全，未发现漏洞</b>
+      </div>
+    </div>
+    <div class="tips">未发现任何漏洞</div>
+    <!--
+      <span *ngIf="d.deviceType==1" class="icons icon-equip-computer licon"></span>
+        <span *ngIf="d.deviceType==2" class="icons icon-equip-phone licon"></span>
+        <span *ngIf="d.deviceType==3" class="icons icon-equip-other licon"></span>
+        <span *ngIf="d.deviceType==4" class="icons icon-equip-video licon"></span>
+    -->
+    <div class="lists">
+      <div class="li" *ngFor="let d of scandatas">
+        <span *ngIf="d.deviceType==1" class="la icons icons-s4"></span>
+        <span *ngIf="d.deviceType==2" class="la icons icons-s2"></span>
+        <span *ngIf="d.deviceType==3" class="la icons icons-s3"></span>
+        <span *ngIf="d.deviceType==4" class="la icons icons-s5"></span>
+        
+        <div class="txts">
+          <span class="icons icons-s6"></span>
+          <p>
+            <span class="name">{{d.vendor ? d.vendor : '未知'}}</span><br/>
+            <span><b>MAC:</b>{{d.deviceMacAddr}}</span>
+            <span>&nbsp;<b>IP:</b>{{d.ip}}</span>
+          </p>
+        </div>
+        <div class="details" *ngIf="d.hasError">
+          <button ion-button class="deal-btn">处理</button>
+          <span>漏洞信息</span>
+
+        </div>
+      </div>
+      <!--
+      <div class="li">
+        <span class="icons icons-s3"></span>
+        <span class="name">智能设备</span>
+        <span class="icons icons-s6"></span>
+      </div>
+      <div class="li">
+        <span class="icons icons-s4"></span>
+        <span class="name">电脑</span>
+        <span class="icons icons-s6"></span>
+      </div>
+      <div class="li">
+        <span class="icons icons-s5"></span>
+        <span class="name">摄像头</span>
+        <span class="icons icons-s6"></span>
+      </div>-->
+    </div>
+  </div>
+
+</ion-content>

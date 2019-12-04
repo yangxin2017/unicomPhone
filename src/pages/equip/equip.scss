@@ -1,0 +1,109 @@
+page-equip {
+    .head-banner{height:125px;
+        border-bottom:solid 1px #e2e2e2;padding-top:5px;text-align:center;
+        .title{
+            font-size:22px;color:#D83A3A;line-height:18px;margin-top:10px;display:inline-block;
+            width:100%;white-space:nowrap;
+            small{color:#999;font-size:12px;}
+        }
+        .hinfors{
+            clear:both;margin-top:15px;
+            .hfmod{
+                float:left;width:33.33%;text-align:center;
+                .txt{
+                    font-size:12px;
+                    b{font-size:14px;color:#31A3FC;font-weight:normal;}
+                }
+            }
+        }
+    }
+
+    .loadcon{
+        text-align:center;
+        background:#eee;
+        padding:5px;
+        margin:10px;
+        border-radius:6px;
+        border:solid 1px #ccc;
+    }
+
+    .loading{
+        font-size:16px;color:#000;
+        animation: circle 1s linear infinite;
+    }
+    @keyframes circle
+    {
+        from {transform:rotate(0deg);}
+        to {transform: rotate(360deg);}
+    }
+
+    .segment-md .segment-button,
+    .segment-ios .segment-button{border:none;color:#333;font-size:14px;border-radius:0;}
+    .segment-md .segment-button.segment-activated,
+    .segment-ios .segment-button.segment-activated{background:none;border-bottom:solid 2px #333;font-weight:bold;color:#333;}
+
+    .navs{padding:10px 10px 0 10px;border-bottom:solid 1px #e2e2e2;}
+    .lists{
+        padding:10px 10px;
+        .litem{
+            margin-bottom:10px;
+            border-radius:12px;border:solid 1px #e2e2e2;min-height:130px;position:relative;
+            .licon{
+                position:absolute;left:0;top:0;
+            }
+            .title{
+                float:right;color:#000;font-size:15px;padding-left:10px;
+                width:86%;border-bottom:solid 1px #e2e2e2;height:30px;line-height:30px;
+                small{float:right;margin:0px 15px 0 0;color:#999;font-size:12px;}
+            }
+            .content{
+                clear:both;padding:5px 15px 0 60px;
+                p{
+                    margin:5px 0;color:#666;font-size:14px;clear:both;
+                    span{float:right;color:#333;}
+                }
+            }
+            .opera{
+                clear:both;padding:5px 0 5px 10px;
+                .icon-equip-connect{float:left;margin-top:10px;}
+                .buttons{
+                    margin:0 0 0 80px;text-align:right;position:relative;padding-right:15px;
+                    .but-select{
+                        position:relative;margin-left:5px;
+                        .icons-con{background-color:#e8e8e8;width:30px;height:30px;border-radius:30px;text-align:center;line-height:30px;display:inline-block;position: relative;z-index:3;}
+                        .sel-txt{padding:3px 10px;color:#fff;background:#161616;white-space:nowrap;left:0;border-radius:10px;padding-left:22px;margin:-5px 0 0 -25px;position: relative;z-index:2;top:1px;}
+                        &.sel{
+                            .icons-con{background-color:#161616;}
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .dialog-content{
+        width:300px;background:#fff;height:150px;z-index:99;
+        box-shadow:0 0 20px #ccc;position:fixed;left:50%;top:-10%;
+        margin:-75px 0 0 -150px;padding:15px;text-align:center;
+        opacity:0;
+        .title{
+            font-size:14px;
+            b{color:#D83A3A;}
+        }
+        .range-md.range-has-pin{padding-top:10px;}
+        .buttons{
+            text-align:center;
+            .but{
+                width:80px;height:30px;line-height:30px;background:#000;
+                .button-inner{font-size:12px;color:#fff;}
+            }
+        }
+        transition:all 0.5s;
+
+        &.show{
+            top:50%;
+            opacity:1;
+        }
+    }
+
+}
