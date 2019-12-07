@@ -19,6 +19,8 @@ export class BindrouterPage {
   step:number = 1;
   inputMacString:string = '';
 
+  bindType:string = 'wg';
+
   constructor(public navCtrl: NavController, 
     public navParams: NavParams, private viewCtrl:ViewController,
     private modalCtrl:ModalController,
@@ -41,8 +43,10 @@ export class BindrouterPage {
     }, 3000);
   }
 
-  manInput(){
-    const modal = this.modalCtrl.create('BindMacPage');
+  manInput(type){
+    this.bindType = type;
+
+    const modal = this.modalCtrl.create('BindMacPage', {type: type});
     modal.present();
     modal.onDidDismiss((mac:any)=>{
       if(mac == null){
@@ -74,7 +78,7 @@ export class BindrouterPage {
 
   fininsh(){
     this.step = 1;
-    this.viewCtrl.dismiss({apmac: this.inputMacString});
+    this.viewCtrl.dismiss({apmac: this.inputMacString, apType: this.bindType == 'wg' ? 0 : 1});
 
   }
 

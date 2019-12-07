@@ -19,6 +19,11 @@ export class UserProvider{
   constructor(public http: HttpClient, private store:Storage, private ctrl:NavController, private modalCtrl:ModalController) {
   }
 
+  ssologin(p, sign){
+    let url = `${BASEURL}/ext/v1/users/get_sso_token?p=${p}&sign=${sign}`;
+    return this.http.post(url, null).toPromise();
+  }
+
   checkStorage(callback, errorback){
     this.store.get('user').then((val:UserStore)=>{
         callback(val);

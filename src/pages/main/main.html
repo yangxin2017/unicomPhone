@@ -34,7 +34,8 @@
       <div class="equip-con l3">
         <img class="lfimg" style="position:relative;left:20px;" src="assets/imgs/main/s3.png" alt="" />
         <div class="infor">
-          <p class="tl">流量统计：<span>{{staticData.llsj.total[0]}} <small style="color:#FDFF00;font-size:14px;">{{staticData.llsj.total[1]}}</small></span></p>
+          <p class="tl">流量统计：<span>{{staticData.llsj.total[0]}} <small
+                style="color:#FDFF00;font-size:14px;">{{staticData.llsj.total[1]}}</small></span></p>
           <div class="stl-container">
             <span class="stl" style="width:100px">本周 {{staticData.llsj.cur[0]}} {{staticData.llsj.cur[1]}}</span><br />
             <span class="stl" style="width:100px">上周 {{staticData.llsj.pre[0]}} {{staticData.llsj.pre[1]}}</span>
@@ -111,7 +112,8 @@
       <div class="i-left">
         <span class="title"><span>安全扫描</span>&nbsp;设备防护</span><br />
         <span class="info">快人一步保护设备安全</span><br />
-        <button (click)="goScan()" [disabled]="scaning" ion-button class="but-ty">{{scaning ? '正在扫描...' : '立即体验'}}</button><br />
+        <button (click)="goScan()" [disabled]="scaning" ion-button
+          class="but-ty">{{scaning ? '正在扫描...' : '立即体验'}}</button><br />
         <button *ngIf="isOver" (click)="showResult()" ion-button clear class="see-result">查看结果</button>
         <button *ngIf="!registed" ion-button clear class="see-result tip">请先绑定网关</button>
       </div>
@@ -150,21 +152,41 @@
     </div>
   </div>
 
-  <div class="panel-wgxx">
-    <div class="title">
-      <h5 style="display:inline-block;margin-top:0;">网关状态</h5>
-      <button ion-button class="but-add" (click)="showlist()" clear>网关列表</button>
-    </div>
-    <div class="inner">
-      <div class="i-left" style="position: relative;top: -11px;">
-        <span class="icons img-lyq"></span>
+  <div class="panel-wgxx-con">
+    <div class="panel-wgxx">
+      <div class="title">
+        <h5 style="display:inline-block;margin-top:0;">网关状态</h5>
+        <button ion-button class="but-add" (click)="showlist()" clear>网关列表</button>
       </div>
-      <div class="i-left rg">
-        <span class="tl">{{routerInfo.name}}</span><br />
-        <span class="info">{{routerInfo.apmac}}</span><br />
-        <button ion-button class="but-ty" [class.gray]="!routerInfo.online">{{routerInfo.online ? '在线' : '离线'}}</button>
+      <div class="inner">
+        <div class="i-left" style="position: relative;top: -11px;">
+          <span class="icons img-lyq"></span>
+        </div>
+        <div class="i-left rg">
+          <span class="tl">{{routerInfo.name}}</span><br />
+          <span class="info">{{routerInfo.apmac}}</span><br />
+          <button ion-button class="but-ty"
+            [class.gray]="!routerInfo.online">{{routerInfo.online ? '在线' : '离线'}}</button>
+        </div>
       </div>
     </div>
+    <!-- <div class="panel-wgxx">
+      <div class="title">
+        <h5 style="display:inline-block;margin-top:0;">路由状态</h5>
+        <button ion-button class="but-add" (click)="showlist('ly')" clear>路由列表</button>
+      </div>
+      <div class="inner">
+        <div class="i-left" style="position: relative;top: -11px;">
+          <span class="icons img-lyq"></span>
+        </div>
+        <div class="i-left rg">
+          <span class="tl">{{routerInfo.name}}</span><br />
+          <span class="info">{{routerInfo.apmac}}</span><br />
+          <button ion-button class="but-ty"
+            [class.gray]="!routerInfo.online">{{routerInfo.online ? '在线' : '离线'}}</button>
+        </div>
+      </div>
+    </div> -->
   </div>
 
   <div class="bottom-m">

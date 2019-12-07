@@ -34,6 +34,16 @@ export class MainProvider {
     // modal.present();
   }
 
+  bindLY(param, success){
+    this.store.get('user').then((us:UserStore)=>{
+      let purl = `${BASEURL}ext/v1/ap/user_bind_ap?${param}`;
+      let pro = this.http.post(purl, null, {headers: {Authorization: us.token}}).toPromise();
+      success(pro);
+    }).catch(()=>{
+      this.goLogin();
+    });
+  }
+
   isDaySign(success){
     this.store.get('user').then((us:UserStore)=>{
       let purl = `${BASEURL}ext/v1/users/is_day_sign`;

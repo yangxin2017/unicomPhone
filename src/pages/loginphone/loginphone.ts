@@ -135,7 +135,7 @@ export class LoginphonePage {
         let caches = [];
         for(let r of res){
           if(r.apMacAddr != ''){
-            caches.push({apmac: r.apMacAddr, ip: r.innerIpShow, alias: r.alias});
+            caches.push({apmac: r.apMacAddr, ip: r.innerIpShow, alias: r.alias, apType: r.apType});
           }
         }
         us.arrEquips = caches;

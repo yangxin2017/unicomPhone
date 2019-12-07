@@ -1,15 +1,15 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { UserProvider } from '../../providers/user/user';
-import { LoadingController } from 'ionic-angular';
-import { AlertController } from 'ionic-angular';
-import { UserStore } from '../user.storage';
-import { Storage } from '@ionic/storage';
-import { ModalController } from 'ionic-angular';
+import { Component } from "@angular/core";
+import { IonicPage, NavController, NavParams } from "ionic-angular";
+import { UserProvider } from "../../providers/user/user";
+import { LoadingController } from "ionic-angular";
+import { AlertController } from "ionic-angular";
+import { UserStore } from "../user.storage";
+import { Storage } from "@ionic/storage";
+import { ModalController } from "ionic-angular";
 
-import { Network } from '@ionic-native/network';
+import { Network } from "@ionic-native/network";
 
-import { JpushsProvider } from '../../providers/jpushs/jpushs';
+import { JpushsProvider } from "../../providers/jpushs/jpushs";
 
 /**
  * Generated class for the LoginPage page.
@@ -20,131 +20,166 @@ import { JpushsProvider } from '../../providers/jpushs/jpushs';
 
 @IonicPage()
 @Component({
-  selector: 'page-login',
-  templateUrl: 'login.html',
+  selector: "page-login",
+  templateUrl: "login.html",
   providers: [UserProvider]
 })
 export class LoginPage {
-
-  username:string = '';
-  password:string = '';
-
-  ////
+  username: string = "";
+  password: string = "";
 
   ////
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,
-    public serv:UserProvider,
+  ////
+
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public serv: UserProvider,
     public loadingCtrl: LoadingController,
     public alertCtrl: AlertController,
     private storage: Storage,
     private modalCtrl: ModalController,
-    private network: Network, 
+    private network: Network,
     private jpush: JpushsProvider
   ) {
-    this.storage.get('user').then((us:UserStore)=>{
-      if(us){
+    this.storage.get("user").then((us: UserStore) => {
+      if (us) {
         this.jpush.initJPUSH(us);
-        this.navCtrl.setRoot('TabPage');
+        this.navCtrl.setRoot("TabPage");
       }
     });
-    this.storage.get('login_username').then((uname:string)=>{
-
+    this.storage.get("login_username").then((uname: string) => {
       this.username = uname;
     });
+    //
+    let p = this.getQueryVariable("p");
+    let sign = this.getQueryVariable("sign");
+    let ip = this.getQueryVariable("ip");
+    let mac = this.getQueryVariable("mac");
+    if(ip && mac){
+      let val = ip + ',' + mac;
+      this.storage.set('myInfo', val);
+    }
+    if (p && sign) {
+      //
+      let loader = this.loadingCtrl.create({
+        content: "登录中..."
+      });
+      this.serv.ssologin(p, sign).then((res: any) => {
+        if(res && res.token){
+          this.saveInfor(res, loader);
+        }
+      });
+    }
 
     /*this.network.onDisconnect().subscribe(() => {
       const modal = this.modalCtrl.create('NonetworkPage');
       modal.present();
     });*/
-
   }
 
-  ionViewDidLoad() {
-    
+  ionViewDidLoad() {}
+
+  getQueryVariable(variable) {
+    if (window.location.href) {
+      var query = window.location.href.split("?");
+      if (query.length > 1) {
+        let querystr = query[1];
+        var vars = querystr.split("&");
+        for (var i = 0; i < vars.length; i++) {
+          var pair = vars[i].split("=");
+          if (pair[0] == variable) {
+            return pair[1];
+          }
+        }
+      }
+    }
+    return false;
   }
 
-  goLoginForPhone(){
-    let reg = this.modalCtrl.create('LoginphonePage');
+  goLoginForPhone() {
+    let reg = this.modalCtrl.create("LoginphonePage");
     reg.present();
   }
 
-  goRegist(){
-    let reg = this.modalCtrl.create('RegistPage');
+  goRegist() {
+    let reg = this.modalCtrl.create("RegistPage");
     reg.present();
   }
 
-  checkLogin(){
+  checkLogin() {
     let loader = this.loadingCtrl.create({
-      content: "登录中...",
+      content: "登录中..."
     });
     loader.present();
     let login = this.serv.login(this.username, this.password);
-    login.then((val:any)=>{
-      
-      this.saveInfor(val, loader);
+    login
+      .then((val: any) => {
+        this.saveInfor(val, loader);
+      })
+      .catch(err => {
+        loader.dismiss();
+        const alert = this.alertCtrl.create({
+          title: "登录失败!",
+          subTitle: "请检查用户名和密码是否正确!",
+          buttons: ["确定"]
+        });
+        alert.present();
 
-    }).catch((err)=>{
-
-      loader.dismiss();
-      const alert = this.alertCtrl.create({
-        title: '登录失败!',
-        subTitle: '请检查用户名和密码是否正确!',
-        buttons: ['确定']
+        //this.username = '';
+        this.password = "";
       });
-      alert.present();
-
-      //this.username = '';
-      this.password = '';
-
-    });
   }
 
-  saveInfor(val, loader){
+  saveInfor(val, loader) {
     let token = val.token;
     //this.serv.getUserinfo(this.username, token).then((val:any)=>{
-      let us = new UserStore();
-      us.email = val.emailAddr;
-      us.phoneNumber = val.phoneNumber;
-      us.token = token;
-      us.userId = val.userId;
-      us.username = val.userId.split('@')[0];
-      us.id = val.id;
-      us.password = val.password;
-      us.birth = val.birthday;
-      us.verifynum = val.identity;
-      us.wxcode = val.wx;
-      us.kdcode = '';
+    let us = new UserStore();
+    us.email = val.emailAddr;
+    us.phoneNumber = val.phoneNumber;
+    us.token = token;
+    us.userId = val.userId;
+    us.username = val.userId.split("@")[0];
+    us.id = val.id;
+    us.password = val.password;
+    us.birth = val.birthday;
+    us.verifynum = val.identity;
+    us.wxcode = val.wx;
+    us.kdcode = "";
 
-      this.storage.set('login_username', this.username);
+    this.storage.set("login_username", this.username);
 
-      this.serv.getAps(token, (res:any)=>{
-        let caches = [];
-        for(let r of res){
-          if(r.apMacAddr != ''){
-            caches.push({apmac: r.apMacAddr, ip: r.innerIpShow, alias: r.alias});
-          }
+    this.serv.getAps(token, (res: any) => {
+      let caches = [];
+      for (let r of res) {
+        if (r.apMacAddr != "") {
+          caches.push({
+            apmac: r.apMacAddr,
+            ip: r.innerIpShow,
+            alias: r.alias,
+            apType: r.apType
+          });
         }
-        us.arrEquips = caches;
+      }
+      us.arrEquips = caches;
 
-        if(us.arrEquips.length > 0){
-          us.apmac = us.arrEquips[0].apmac;
-          us.ip = us.arrEquips[0].ip;
-          us.isBindRouter = true;
-        }else{
-          us.isBindRouter = false;
-        }
-        
-        loader.dismiss();
+      if (us.arrEquips.length > 0) {
+        us.apmac = us.arrEquips[0].apmac;
+        us.ip = us.arrEquips[0].ip;
+        us.isBindRouter = true;
+      } else {
+        us.isBindRouter = false;
+      }
 
-        this.storage.set('user', us);
-        
-        this.navCtrl.setRoot('TabPage');
+      loader.dismiss();
 
-        this.jpush.initJPUSH(us);
+      this.storage.set("user", us);
 
-      });
+      this.navCtrl.setRoot("TabPage");
+
+      this.jpush.initJPUSH(us);
+    });
     //});
   }
-
 }

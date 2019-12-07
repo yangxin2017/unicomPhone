@@ -6,18 +6,56 @@
 -->
 <ion-header>
 
-  <uni-header (clkBack)="closeModal()" [showmes]="true" [mestitle]="'绑定新网关'" (clkRight)="addRouter()" [showmodal]="true" [title]="'网关列表'"></uni-header>
+  <uni-header (clkBack)="closeModal()" [showmes]="true" [mestitle]="'绑定新网关'" (clkRight)="addRouter()" [showmodal]="true"
+    [title]="curType == '0' ? '网关列表' : '路由列表'"></uni-header>
 
 </ion-header>
 
 
 <ion-content>
-  <ion-list radio-group (ionChange)="selected($event)">
-  
+
+  <div>
+    <ion-segment [(ngModel)]="curType">
+      <ion-segment-button value="0">
+        网关
+      </ion-segment-button>
+      <ion-segment-button value="1">
+        路由
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+
+  <div [ngSwitch]="curType">
+    <div *ngSwitchCase="0">
+      <ion-list *ngIf="routes.length > 0" radio-group (ionChange)="selected($event)">
+        <ion-item *ngFor="let item of routes">
+          <ion-label>{{item.apmac}}</ion-label>
+          <ion-radio checked="{{item.checked}}" value="{{item.apmac}}"></ion-radio>
+        </ion-item>
+      </ion-list>
+      <img *ngIf="routes.length <= 0" src="assets/imgs/nodata.jpg" style="width:80%;margin:30px 0 0 10%;" alt="" />
+    </div>
+
+    <div *ngSwitchCase="1">
+      <ion-list *ngIf="lys.length > 0" radio-group (ionChange)="selected($event)">
+        <ion-item *ngFor="let item of lys">
+          <ion-label>{{item.apmac}}</ion-label>
+          <ion-radio checked="{{item.checked}}" value="{{item.apmac}}"></ion-radio>
+        </ion-item>
+      </ion-list>
+      <img *ngIf="lys.length <= 0" src="assets/imgs/nodata.jpg" style="width:80%;margin:30px 0 0 10%;" alt="" />
+    </div>
+  </div>
+
+  <!-- <ion-list *ngIf="routes.length > 0" radio-group (ionChange)="selected($event)">
+
     <ion-item *ngFor="let item of routes">
       <ion-label>{{item.apmac}}</ion-label>
       <ion-radio checked="{{item.checked}}" value="{{item.apmac}}"></ion-radio>
     </ion-item>
 
-  </ion-list>
+  </ion-list> -->
+
+
+
 </ion-content>

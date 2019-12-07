@@ -14,7 +14,7 @@
 <ion-content>
   <div class="step1 center-con" *ngIf="step==1">
     <img src="assets/bind/step1.png" alt="" /><br/>
-    <button ion-button class="connet-button" (click)="connectWIFI()">连接联通网关WIFI</button><br/>
+    <button ion-button class="connet-button" (click)="connectWIFI()">确认联通网关WIFI</button><br/>
     <span *ngIf="searchrouter" class="tip-connect"><ion-icon name="md-sync" class="loading"></ion-icon>&nbsp;正在搜索网关...</span>
   </div>
 
@@ -26,11 +26,11 @@
       <span class="title">LTZHWO-internet</span>
     </div>
     <div class="buttons">
-      <button ion-button class="button">扫码绑定</button><br/>
-      <span class="txt">将网关底部Mac条形码放入视频框内，即可扫码</span>
+      <button ion-button class="button" (click)="manInput('ly')">路由器-手工输入</button><br/>
+      <span class="txt">将路由器底部Mac地址手动输入进来</span>
     </div>
     <div class="buttons qs">
-      <button ion-button class="button" (click)="manInput()">手工输入</button><br/>
+      <button ion-button class="button" (click)="manInput('wg')">网关-手工输入</button><br/>
       <span class="txt">将网关底部Mac地址手动输入进来</span>
     </div>
   </div>
