@@ -56,19 +56,22 @@ export class LoginPage {
     let p = this.getQueryVariable("p");
     let sign = this.getQueryVariable("sign");
     let ip = this.getQueryVariable("ip");
-    let mac = this.getQueryVariable("mac");
-    if(ip && mac){
-      let val = ip + ',' + mac;
-      this.storage.set('myInfo', val);
-    }
-    if (p && sign) {
+    let mac = this.getQueryVariable("macAddress");
+    // if(ip && mac){
+    //   let val = ip + ',' + mac;
+    //   this.storage.set('myInfo', val);
+    // }
+    if (p && sign && ip && mac) {
       //
       let loader = this.loadingCtrl.create({
         content: "登录中..."
       });
-      this.serv.ssologin(p, sign).then((res: any) => {
+      this.serv.ssologin(p, sign, ip, mac).then((res: any) => {
         if(res && res.token){
           this.saveInfor(res, loader);
+          console.log(res);
+          let val = res.ip + ',' + res.macAddress;
+          this.storage.set('myInfo', val);
         }
       });
     }
