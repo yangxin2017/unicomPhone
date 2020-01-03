@@ -110,10 +110,10 @@
   <div class="panel-ldsm">
     <div class="inner">
       <div class="i-left">
-        <span class="title"><span>安全扫描</span>&nbsp;设备防护</span><br />
+        <span class="title"><span>智能设备安全防护</span></span><br />
         <span class="info">快人一步保护设备安全</span><br />
         <button (click)="goScan()" [disabled]="scaning" ion-button
-          class="but-ty">{{scaning ? '正在扫描...' : '立即体验'}}</button><br />
+          class="but-ty">立即体验</button><br />
         <button *ngIf="isOver" (click)="showResult()" ion-button clear class="see-result">查看结果</button>
         <button *ngIf="!registed" ion-button clear class="see-result tip">请先绑定网关</button>
       </div>

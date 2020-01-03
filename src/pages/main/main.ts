@@ -125,19 +125,27 @@ export class MainPage {
 
   dealMain() {
     if (this.registed) {
-      this.serv.getStatic((datas: any) => {
-        let alert = datas[0];
-        let equip = datas[1];
-        let llsj = datas[2];
-        let signs = datas[3];
-        let links = datas[4];
-        let rinfo = datas[5];
-
+      this.serv.getAlert((datas:any)=>{
+        let alert = datas[0]
         if (alert.length > 2) {
-          this.staticData.alert.pre = alert[0].v;
-          this.staticData.alert.cur = alert[1].v;
-          this.staticData.alert.sum = alert[2].v;
-        }
+            this.staticData.alert.pre = alert[0].v;
+            this.staticData.alert.cur = alert[1].v;
+            this.staticData.alert.sum = alert[2].v;
+          }
+      });
+      this.serv.getStatic((datas: any) => {
+        //let alert = datas[0];
+        let equip = datas[0];
+        let llsj = datas[1];
+        let signs = datas[2];
+        let links = datas[3];
+        let rinfo = datas[4];
+
+        // if (alert.length > 2) {
+        //   this.staticData.alert.pre = alert[0].v;
+        //   this.staticData.alert.cur = alert[1].v;
+        //   this.staticData.alert.sum = alert[2].v;
+        // }
 
         for (let m of equip) {
           if (m.type == 1) {

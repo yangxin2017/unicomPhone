@@ -122,7 +122,7 @@ export class UniAlertchartComponent  {
   }
 
   initSocketDetail(apmac, st, et, url1, url2, pi, po){
-    var socket = new SockJS('http://39.105.18.142/hb/dolphin/initWebSocket/');
+    var socket = new SockJS('https://www.hzspec.com/hb/dolphin/initWebSocket/');
 
     this.stompClient = Stomp.Stomp.over(socket);
     this.stompClient.connect({}, (frame) => {

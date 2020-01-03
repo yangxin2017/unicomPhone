@@ -73,7 +73,7 @@ export class EquipPage {
       this.equiplist.all = val.result;
       this.equiplist.ok = _.filter(val.result, d=>{return d.status != '10';});
       this.equiplist.no = _.filter(val.result, d=>{return d.status == '10';});
-      this.equiplist.white = _.filter(val.result, d=>{return d.status == '20';});
+      this.equiplist.white = _.filter(val.result, d=>{return d.status == '20' || !d.status;});
       this.equiplist.black = _.filter(val.result, d=>{return d.status == '30';});
       this.equiplist.xs = _.filter(val.result, d=>{return d.status == '40';});
       this.equiplist.ds = _.filter(val.result, d=>{return d.status == '9-17';});
@@ -108,7 +108,7 @@ export class EquipPage {
   segmentChanged(ev){
     this.equiplist.ok = _.filter(this.equiplist.all, d=>{return d.status != '10';});
     this.equiplist.no = _.filter(this.equiplist.all, d=>{return d.status == '10';});
-    this.equiplist.white = _.filter(this.equiplist.all, d=>{return d.status == '20';});
+    this.equiplist.white = _.filter(this.equiplist.all, d=>{return d.status == '20' || !d.status;});
     this.equiplist.black = _.filter(this.equiplist.all, d=>{return d.status == '30';});
     this.equiplist.xs = _.filter(this.equiplist.all, d=>{return d.status == '40';});
     this.equiplist.ds = _.filter(this.equiplist.all, d=>{return d.status == '9-17';});
