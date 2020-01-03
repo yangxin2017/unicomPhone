@@ -58,6 +58,10 @@ export class SafePage {
         this.safeType = 'green';
         this.showback = true;
         this.showHeader = true;
+      }else if(ptp && ptp == 'alert'){
+        this.safeType = 'alert';
+        this.showback = true;
+        this.showHeader = true;
       }else{
         this.safeType = 'alert';
       }

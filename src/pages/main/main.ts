@@ -234,23 +234,25 @@ export class MainPage {
 
   goScan() {
     if (this.registed) {
-      this.scaning = true;
-      this.sserv.startScan(() => { });
+      const modal = this.modalCtrl.create('SafePage', {type: 'alert'});
+      modal.present();
+      // this.scaning = true;
+      // this.sserv.startScan(() => { });
 
-      //getEquips
-      this.getEquipLists();
+      // //getEquips
+      // this.getEquipLists();
 
-      this.inter = setInterval(() => {
-        this.second++;
-        this.sserv.checkScan((res: any) => {
-          if (res.success) {
-            this.stopScan();
-          }
-        });
-        if (this.second >= 3) {
-          //this.stopScan();
-        }
-      }, 3000);
+      // this.inter = setInterval(() => {
+      //   this.second++;
+      //   this.sserv.checkScan((res: any) => {
+      //     if (res.success) {
+      //       this.stopScan();
+      //     }
+      //   });
+      //   if (this.second >= 3) {
+      //     //this.stopScan();
+      //   }
+      // }, 3000);
     } else {
       const alert = this.alertCtrl.create({
         title: '启动失败!',
