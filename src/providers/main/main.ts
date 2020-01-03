@@ -102,15 +102,15 @@ export class MainProvider {
         .get(purl4, { headers: { Authorization: us.token } })
         .toPromise();
 
-      let purl5 = `${BASEURL2}hzspec/link.json`;
-      let pro5 = this.http.get(purl5).toPromise();
+      // let purl5 = `${BASEURL2}hzspec/link.json`;
+      // let pro5 = this.http.get(purl5).toPromise();
 
       let purl6 = `${BASEURL}ext/v1/ap/overview?apMacAddr=${us.apmac}`;
       let pro6 = this.http
         .get(purl6, { headers: { Authorization: us.token } })
         .toPromise();
 
-      Promise.all([pro2, pro3, pro4, pro5, pro6])
+      Promise.all([pro2, pro3, pro4, pro6])
         .then((datas: any) => {
           success(datas);
         })

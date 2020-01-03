@@ -138,8 +138,8 @@ export class MainPage {
         let equip = datas[0];
         let llsj = datas[1];
         let signs = datas[2];
-        let links = datas[3];
-        let rinfo = datas[4];
+        // let links = datas[3];
+        let rinfo = datas[3];
 
         // if (alert.length > 2) {
         //   this.staticData.alert.pre = alert[0].v;
@@ -168,8 +168,8 @@ export class MainPage {
         this.staticData.llsj.total = this.getllNumber(d15);
         this.staticData.llsj.total[0] = parseInt(this.staticData.llsj.total[0]);
 
-        this.zhsh = links.zhsh;
-        this.qd = links.qd;
+        // this.zhsh = links.zhsh;
+        // this.qd = links.qd;
 
         this.isSign = signs;
 
