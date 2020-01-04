@@ -4,8 +4,6 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { LoadingController, ModalController, ToastController  } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import { EquipProvider } from '../../providers/equip/equip';
-import { DeviceTypeInfoPipe } from './device-type.pip'
-
 import * as _ from 'lodash';
 import * as moment from 'moment';
 
