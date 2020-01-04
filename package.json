@@ -33,7 +33,6 @@
         "cordova-android": "^7.1.2",
         "cordova-open-native-settings": "^1.5.2",
         "cordova-plugin-device": "^2.0.3",
-        "cordova-plugin-inappbrowser": "D:\\mine\\bk\\myappbrowser",
         "cordova-plugin-ionic-keyboard": "^2.2.0",
         "cordova-plugin-jcore": "file:node_modules/cordova-plugin-jcore",
         "cordova-plugin-network-information": "^2.0.1",
