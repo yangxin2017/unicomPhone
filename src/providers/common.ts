@@ -1,6 +1,6 @@
 //export const BASEURL = 'http://60.205.212.99/';
-export const BASEURL = 'https://www.hzspec.com/hb/';
-//export const BASEURL = '/hb/';
+//export const BASEURL = 'https://www.hzspec.com/hb/';
+export const BASEURL = '/hb/';
 export const BASEURL2 = 'http://47.92.86.51/';
 export const VERSION = '0.2.0118';
 
