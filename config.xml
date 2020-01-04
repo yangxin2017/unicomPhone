@@ -90,5 +90,5 @@
         <variable name="APP_KEY" value="d8048228671bdf91bb27ebdb" />
         <variable name="CHANNEL" value="developer-default" />
     </plugin>
-    <engine name="android" spec="7.1.2" />
+    <engine name="android" spec="~7.1.2" />
 </widget>
