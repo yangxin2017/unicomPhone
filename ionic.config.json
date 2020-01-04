@@ -6,12 +6,13 @@
   "proxies": [
     {
       "path": "/hb/",
-      "proxyUrl": "http://39.105.18.142/hb/"
+      "proxyUrl": "https://www.hzspec.com/hb/"
     },
     {
       "path": "/hzspec/",
       "proxyUrl": "http://47.92.86.51/hzspec/"
     }
   ],
-  "type": "ionic-angular"
+  "type": "ionic-angular",
+  "app_id": ""
 }

@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { StimeagoPipe } from './stimeago/stimeago';
-import { DeviceTypeInfoPipe } from './device-type/device-type.pip'
+import { DeviceTypeInfoPipe } from './devicetype/devicetype'
 @NgModule({
 	declarations: [StimeagoPipe,DeviceTypeInfoPipe],
 	imports: [],
 	exports: [StimeagoPipe,DeviceTypeInfoPipe]
 })
 export class PipesModule {}
+
