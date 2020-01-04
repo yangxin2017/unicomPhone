@@ -3,6 +3,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 @Pipe({name:'deviceType'})
 export class DeviceTypeInfoPipe implements PipeTransform {
   transform(value: string): string {
+    console.log("DeviceTypeInfoPipe the value is:" + value);
     switch(value){
         case '0': return '其他';
         case '1': return '手机';
