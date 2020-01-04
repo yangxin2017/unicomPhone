@@ -148,7 +148,7 @@
           {{d.alias}}<small>{{d.createTime|stimeago}}</small>
         </div>
         <div class="content">
-          <p>Mac地址<span>{{d.deviceMacAddr}}</span></p>
+          <p>Mac地址<span>{{d.deviceMacAddr.toString()}}</span></p>
           <p>IP地址<span>{{d.ip}}</span></p>
           <p>设备名称<span>{{d.hostName == '' ? '暂无' : d.hostName}}</span></p>
         </div>
