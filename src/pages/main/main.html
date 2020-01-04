@@ -21,9 +21,9 @@
         <div class="infor">
           <p class="tl">设备总量：<span>{{staticData.equip.total}}</span></p>
           <div class="stl-container">
-            <span class="stl">移动终端 {{staticData.equip.sj}}</span>
+            <span class="stl">手机 {{staticData.equip.sj}}</span>
             <span class="stl">电脑 {{staticData.equip.dn}}</span>
-            <span class="stl">摄像头 {{staticData.equip.sxt}}</span>
+            <span class="stl">平板 {{staticData.equip.pad}}</span>
             <span class="stl">其他 {{staticData.equip.qt}}</span>
           </div>
         </div>
@@ -113,7 +113,7 @@
         <span class="title"><span>智能设备安全防护</span></span><br />
         <span class="info">快人一步保护设备安全</span><br />
         <button (click)="goScan()" [disabled]="scaning" ion-button
-          class="but-ty">立即体验</button><br />
+          class="but-ty">查看安全报警</button><br />
         <button *ngIf="isOver" (click)="showResult()" ion-button clear class="see-result">查看结果</button>
         <button *ngIf="!registed" ion-button clear class="see-result tip">请先绑定网关</button>
       </div>

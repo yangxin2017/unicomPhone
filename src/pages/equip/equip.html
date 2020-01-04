@@ -13,7 +13,7 @@
 
 <ion-content>
   <div class="head-banner" style="background:url(assets/imgs/equip/bgbanner.png) no-repeat 0 0;background-size:100% 125px;" *ngIf="routerData">
-    <span class="title">{{routerData.user.alias}}<a style="font-size:12px;position:relative;top:-5px;left:5px;" (click)="seeRouterLL()">[查看流量]</a><br/><small>{{routerData.user.apMacAddr}}</small></span>
+    <span class="title">{{routerData.user.alias}}<a style="font-size:12px;position:relative;top:-5px;left:5px;" (click)="seeRouterLL()">[查看流量]</a><br/></span>
 
     <div class="hinfors">
       <div class="hfmod">
@@ -65,7 +65,7 @@
           {{d.alias}}<small>{{d.createTime|stimeago}}</small>
         </div>
         <div class="content">
-          <p>Mac地址<span>{{d.deviceMacAddr}}</span></p>
+          <p>设备类型<span>{{d.deviceType.toString() | deviceType }}</span></p>
           <p>IP地址<span>{{d.ip}}</span></p>
           <p>设备名称<span>{{d.hostName == '' ? '暂无' : d.hostName}}</span></p>
         </div>

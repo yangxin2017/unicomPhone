@@ -40,7 +40,7 @@ export class MainPage {
       dn: 0,
       sj: 0,
       qt: 0,
-      sxt: 0,
+      pad: 0,
       total: 0
     },
     llsj: {
@@ -148,14 +148,14 @@ export class MainPage {
         // }
 
         for (let m of equip) {
-          if (m.type == 1) {
+          if (m.type == 3) { //电脑
             this.staticData.equip.dn = m.amount;
-          } else if (m.type == 2) {
+          } else if (m.type == 1) { //手机
             this.staticData.equip.sj = m.amount;
-          } else if (m.type == 3) {
+          } else if (m.type == 0) { //其他
             this.staticData.equip.qt = m.amount;
-          } else if (m.type == 4) {
-            this.staticData.equip.sxt = m.amount;
+          } else if (m.type == 2) { //pad
+            this.staticData.equip.pad = m.amount;
           }
           this.staticData.equip.total += m.amount;
         }
