@@ -41,7 +41,6 @@ function timeago(differtime: number, args: number = 5): string {
  */
 @Pipe({
   name: 'stimeago',
-  //name: 'devicetype',
 })
 export class StimeagoPipe implements PipeTransform {
   /**
@@ -70,3 +69,5 @@ export class StimeagoPipe implements PipeTransform {
 
   }
 }
+
+
