@@ -174,9 +174,10 @@ export class MainPage {
         this.isSign = signs;
 
         this.routerInfo.online = false;
-        if (rinfo.apStatusLogs.length > 0) {
-          this.routerInfo.online = rinfo.apStatusLogs[0].status == 1 ? true : false;
+        if(rinfo.user != null && rinfo != undefined){
+          this.routerInfo.online = rinfo.user.status == 1 ? true : false; 
         }
+       
 
       });
 
