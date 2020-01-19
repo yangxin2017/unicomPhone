@@ -62,7 +62,8 @@ export class LoginPage {
     //   this.storage.set('myInfo', val);
     // }
     if (p && sign && ip) {
-      //
+      //will remove mac value
+
       let loader = this.loadingCtrl.create({
         content: "登录中..."
       });
