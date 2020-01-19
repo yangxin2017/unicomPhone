@@ -19,8 +19,8 @@ export class UserProvider{
   constructor(public http: HttpClient, private store:Storage, private ctrl:NavController, private modalCtrl:ModalController) {
   }
 
-  ssologin(p, sign, ip, mac){
-    let url = `${BASEURL}/ext/v1/users/get_sso_token?p=${p}&sign=${sign}&ip=${ip}&macAddress=${mac}`;
+  ssologin(p, sign, ip){
+    let url = `${BASEURL}/ext/v1/users/get_sso_token?p=${p}&sign=${sign}&ip=${ip}`;
     return this.http.post(url, null).toPromise();
   }
 

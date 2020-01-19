@@ -154,11 +154,11 @@ export class UniRankchartsafeComponent {
         }
     }else{
         this.loading = false;
-        this.loadingtxt = '没有数据！'
+        this.loadingtxt = '没有异常告警，可放心使用！'
     }
     setTimeout(()=>{
         this.loading = false;
-        this.loadingtxt = '没有数据！'
+        this.loadingtxt = '没有异常告警，可放心使用！'
     }, 5000);
   }
   get datas(){

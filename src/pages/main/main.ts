@@ -177,8 +177,6 @@ export class MainPage {
         if(rinfo.user != null && rinfo != undefined){
           this.routerInfo.online = rinfo.user.status == 1 ? true : false; 
         }
-       
-
       });
 
       /*

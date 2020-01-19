@@ -12,6 +12,7 @@ import { MainProvider } from "../../providers/main/main";
 import { AlertController } from "ionic-angular";
 import { UserStore } from "../user.storage";
 import { Storage } from "@ionic/storage";
+import { BASEURL, BASEURL2 } from "../../providers/common";
 
 import * as _ from "lodash";
 
@@ -33,6 +34,7 @@ export class BindMacPage {
   curindex: number = -1;
   isfresh: boolean = true;
   localip: string = "http://192.168.1.1:8080/b?apMacAddress=";
+  //localip: string = `${BASEURL}ext/v1/ap/user_bind_ap`;
 
   bindType: string = "wg";
 
@@ -60,6 +62,7 @@ export class BindMacPage {
     this.viewCtrl.dismiss(null);
   }
 
+  //post method
   bindInterServerAP(us: UserStore, mac, success) {
     this.http
       .get(this.localip + mac, { headers: { Authorization: us.token } })

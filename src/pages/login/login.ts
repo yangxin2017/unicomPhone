@@ -61,12 +61,12 @@ export class LoginPage {
     //   let val = ip + ',' + mac;
     //   this.storage.set('myInfo', val);
     // }
-    if (p && sign && ip && mac) {
+    if (p && sign && ip) {
       //
       let loader = this.loadingCtrl.create({
         content: "登录中..."
       });
-      this.serv.ssologin(p, sign, ip, mac).then((res: any) => {
+      this.serv.ssologin(p, sign, ip).then((res: any) => {
         if(res && res.token){
           this.saveInfor(res, loader);
           console.log(res);

@@ -6,7 +6,7 @@
 -->
 <ion-header>
 
-  <uni-header (clkBack)="closeModal()" [showmodal]="true" [title]="'绑定网关'"></uni-header>
+  <uni-header (clkBack)="closeModal()" [showmodal]="true" [title]="'安全赋能'"></uni-header>
 
 </ion-header>
 
@@ -14,7 +14,7 @@
 <ion-content>
   <div class="step1 center-con" *ngIf="step==1">
     <img src="assets/bind/step1.png" alt="" /><br/>
-    <button ion-button class="connet-button" (click)="connectWIFI()">确认联通网关WIFI</button><br/>
+    <button ion-button class="connet-button" (click)="connectWIFI()">确认连接到正确的WIFI下</button><br/>
     <span *ngIf="searchrouter" class="tip-connect"><ion-icon name="md-sync" class="loading"></ion-icon>&nbsp;正在搜索网关...</span>
   </div>
 
