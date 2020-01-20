@@ -61,15 +61,17 @@ export class LoginPage {
     //   let val = ip + ',' + mac;
     //   this.storage.set('myInfo', val);
     // }
+    /*
     var alertER = this.alertCtrl.create({
       title: "登录失败!",
       subTitle: "the p is:" + p + "  ip is:" + ip + "  sign="+sign,
       buttons: ["确定"]
     });
     alertER.present();
+    */
 
     //alert()
-    if (p && sign && ip) {
+    if (p && sign) {
       //will remove mac value
 
       //alert("have remove mac")
