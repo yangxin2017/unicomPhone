@@ -61,17 +61,24 @@ export class LoginPage {
     //   let val = ip + ',' + mac;
     //   this.storage.set('myInfo', val);
     // }
-    alert("the p is:" + p + "  ip is:" + ip + "  sign="+sign)
+    var alertER = this.alertCtrl.create({
+      title: "登录失败!",
+      subTitle: "the p is:" + p + "  ip is:" + ip + "  sign="+sign,
+      buttons: ["确定"]
+    });
+    alertER.present();
+
+    //alert()
     if (p && sign && ip) {
       //will remove mac value
 
-      alert("have remove mac")
+      //alert("have remove mac")
       let loader = this.loadingCtrl.create({
         content: "登录中..."
       });
       this.serv.ssologin(p, sign, ip).then((res: any) => {
         if(res && res.token){
-          alert("get message from ssologin")
+          //alert("get message from ssologin")
           this.saveInfor(res, loader);
           console.log(res);
           let val = res.ip + ',' + res.macAddress;
