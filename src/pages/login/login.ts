@@ -64,11 +64,13 @@ export class LoginPage {
     if (p && sign && ip) {
       //will remove mac value
 
+      alert("have remove mac")
       let loader = this.loadingCtrl.create({
         content: "登录中..."
       });
       this.serv.ssologin(p, sign, ip).then((res: any) => {
         if(res && res.token){
+          alert("get message from ssologin")
           this.saveInfor(res, loader);
           console.log(res);
           let val = res.ip + ',' + res.macAddress;
@@ -153,8 +155,9 @@ export class LoginPage {
     us.kdcode = "";
 
     this.storage.set("login_username", this.username);
-
+    alert("this is in saveInfor and token is:" + us.token)
     this.serv.getAps(token, (res: any) => {
+      alert("get ap is ok")
       let caches = [];
       for (let r of res) {
         if (r.apMacAddr != "") {
@@ -182,7 +185,7 @@ export class LoginPage {
 
       this.navCtrl.setRoot("TabPage");
 
-      this.jpush.initJPUSH(us);
+      //this.jpush.initJPUSH(us);
     });
     //});
   }
