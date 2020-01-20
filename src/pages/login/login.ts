@@ -61,6 +61,7 @@ export class LoginPage {
     //   let val = ip + ',' + mac;
     //   this.storage.set('myInfo', val);
     // }
+    alert("the p is:" + p + "  ip is:" + ip + "  sign="+sign)
     if (p && sign && ip) {
       //will remove mac value
 
