@@ -147,10 +147,11 @@ export class LoginPage {
     us.wxcode = val.wx;
     us.kdcode = "";
 
+
+
+    
     this.storage.set("login_username", this.username);
-    alert("this is in saveInfor and token is:" + us.token)
     this.serv.getAps(token, (res: any) => {
-      alert("get ap is ok")
       let caches = [];
       for (let r of res) {
         if (r.apMacAddr != "") {
