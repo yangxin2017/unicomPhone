@@ -45,7 +45,7 @@ export class LoginPage {
   ) {
     this.storage.get("user").then((us: UserStore) => {
       if (us) {
-        this.jpush.initJPUSH(us);
+        //this.jpush.initJPUSH(us);
         this.navCtrl.setRoot("TabPage");
       }
     });
@@ -61,20 +61,8 @@ export class LoginPage {
     //   let val = ip + ',' + mac;
     //   this.storage.set('myInfo', val);
     // }
-    /*
-    var alertER = this.alertCtrl.create({
-      title: "登录失败!",
-      subTitle: "the p is:" + p + "  ip is:" + ip + "  sign="+sign,
-      buttons: ["确定"]
-    });
-    alertER.present();
-    */
 
-    //alert()
     if (p && sign) {
-      //will remove mac value
-
-      //alert("have remove mac")
       let loader = this.loadingCtrl.create({
         content: "登录中..."
       });
@@ -88,11 +76,6 @@ export class LoginPage {
         }
       });
     }
-
-    /*this.network.onDisconnect().subscribe(() => {
-      const modal = this.modalCtrl.create('NonetworkPage');
-      modal.present();
-    });*/
   }
 
   ionViewDidLoad() {}
