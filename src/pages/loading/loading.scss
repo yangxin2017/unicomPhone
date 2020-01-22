@@ -1,0 +1,90 @@
+.box {
+    display: block;
+    width: 64px;
+    height: 64px;
+    transform-origin: 16px 16px;
+    /* 旋转 */
+    animation: xuanzhuan 5s infinite;
+    position:absolute;
+    left:50%;top:50%;
+    margin:-66px 0 0 -22px;
+}
+/* 平移 */
+.ping {
+    animation: pingyi 2.5s infinite;
+    position: absolute;
+}
+.hang {
+    width: 64px;
+    height: 24px;
+    position: absolute;
+}
+.hang:nth-child(0) {
+    transform: rotate(0deg);
+}
+.hang:nth-child(1) {
+    transform: rotate(90deg);
+}
+.hang:nth-child(2) {
+    transform: rotate(180deg);
+}
+.hang:nth-child(3) {
+    transform: rotate(270deg);
+}
+/* 第一个小珠子 */
+.ping:nth-child(1) {
+    width: 8px;
+    height: 8px;
+    top: 50%;
+    left: 50%;
+    margin-top: -4px;
+    margin-left: -4px;
+    border-radius: 4px;
+    animation-delay: -0.3s;
+}
+/* 第二个小珠子 */
+.ping:nth-child(2) {
+    width: 16px;
+    height: 16px;
+    top: 50%;
+    left: 50%;
+    margin-top: -8px;
+    margin-left: -8px;
+    border-radius: 8px;
+    -webkit-animation-delay: -0.6s;
+    animation-delay: -0.6s;
+}
+ /* 第三个小珠子 */    
+.ping:nth-child(3) {
+    width: 24px;
+    height: 24px;
+    top: 50%;
+    left: 50%;
+    margin-top: -12px;
+    margin-left: -12px;
+    border-radius: 12px;
+    animation-delay: -0.9s;
+}
+
+.blue {
+    background-color: #1f4e5a;
+}
+.red {
+    background-color: #ff5955;
+}
+.yellow {
+    background-color: #ffb265;
+}
+.green {
+    background-color: #00a691;
+}
+@keyframes xuanzhuan {
+    0% { transform: rotate(0deg);}
+    100% { transform: rotate(360deg);}
+}
+@keyframes pingyi {
+    0% {transform: translateX(0);}
+     25% { transform: translateX(-64px); }
+    75% { transform: translateX(32px);} 
+    100% {transform: translateX(0);}
+}
