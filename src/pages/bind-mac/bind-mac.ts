@@ -88,7 +88,7 @@ export class BindMacPage {
         alert.present();
       });
   }
-
+  //路由绑定
   bindForLY(us: UserStore, apmac, success) {
     this.storage.get("myInfo").then((ipmac: any) => {
       let arr = ipmac.split(",");

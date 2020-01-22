@@ -148,8 +148,6 @@ export class LoginPage {
     us.kdcode = "";
 
 
-
-    
     this.storage.set("login_username", this.username);
     this.serv.getAps(token, (res: any) => {
       let caches = [];
